@@ -129,7 +129,7 @@ public class PlayerList extends AppCompatActivity {
                 for(int i=1;i<=1;i++){
                      DataSnapshot ds = dataSnapshot.child("PLAYERS").child(Integer.toString(i));
                     Players player = new Players();
-                   // player.setAge(Integer.parseInt((String) ds.child("Age").getValue()));
+                   //player.setAge(Integer.parseInt((String) ds.child("Age").getValue()));
                     player.setAge(18);
                     player.setCountry((String)ds.child("Country").getValue());
                     //Log.d("cou", player.getCountry());
@@ -137,7 +137,7 @@ public class PlayerList extends AppCompatActivity {
                     player.setRole((String)ds.child("Role").getValue());
                     player.setTeam((String)ds.child("Team").getValue());
                     player.setUrl((String)ds.child("ImageURL").getValue());
-                    player.setTotScore(((Long) ds.child("TotScore").getValue()).intValue());
+                    player.setTotScore(0);
                     player.setPrice(((Long) ds.child("Price").getValue()).intValue());
                     player.setId(((Long) ds.child("PlayerId").getValue()).intValue());
                     players.add(player);
