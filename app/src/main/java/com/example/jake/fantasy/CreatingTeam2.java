@@ -197,7 +197,7 @@ public class CreatingTeam2 extends AppCompatActivity {
                     }
                 }
                 if(wktsel>0 && wkts.size()<wktsel){
-                    for(int i=1;i<wktsel;i++){
+                    for(int i=0;i<wktsel;i++){
                         DataSnapshot ds = dataSnapshot.child("Wkt").child(Integer.toString(i));
                         Players player = new Players();
                         String pid = ds.child("PID").getValue().toString();

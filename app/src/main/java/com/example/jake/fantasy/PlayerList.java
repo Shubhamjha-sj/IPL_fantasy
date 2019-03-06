@@ -126,7 +126,7 @@ public class PlayerList extends AppCompatActivity {
                 userMon = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("Price").getValue().toString());
                 fore = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("Foreign").getValue().toString());
 
-                for(int i=1;i<=1;i++){
+                for(int i=0;i<=3;i++){
                      DataSnapshot ds = dataSnapshot.child("PLAYERS").child(Integer.toString(i));
                     Players player = new Players();
                    //player.setAge(Integer.parseInt((String) ds.child("Age").getValue()));

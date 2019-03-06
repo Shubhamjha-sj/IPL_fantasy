@@ -63,8 +63,8 @@ public class UpdateScore {
                         int id = Integer.parseInt(snapshot.child("PlayerId").getValue().toString()) - 1;
 
                         Log.d("ds","Updating Data of id "+ Integer.toString(id));
-                         mDatabase.child(Integer.toString(id)).child("BatPerform").child("Match").setValue(match + 1);
-                         mDatabase.child(Integer.toString(id)).child("BatPerform").child("Ball").setValue(ball + Ball.get(j));
+                        mDatabase.child(Integer.toString(id)).child("BatPerform").child("Match").setValue(match + 1);
+                        mDatabase.child(Integer.toString(id)).child("BatPerform").child("Ball").setValue(ball + Ball.get(j));
                         mDatabase.child(Integer.toString(id)).child("BatPerform").child("Run").setValue(run + Run.get(j));
                         int score;
                         if(Ball.get(j)!=0) score = Run.get(j) * Run.get(j)/Ball.get(j);
@@ -267,4 +267,3 @@ public class UpdateScore {
         }
     }
 }
-
