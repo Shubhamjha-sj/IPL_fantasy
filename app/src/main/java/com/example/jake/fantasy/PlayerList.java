@@ -114,19 +114,19 @@ public class PlayerList extends AppCompatActivity {
                 if(role.equals("All"))
                     par = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("AllrounderSel").getValue().toString());
                 for(int i=0;i<par;i++){
-                    pids.add(Integer.parseInt(dataSnapshot.child("USERS").child(userId).child(role).child(Integer.toString(i)).child("PID").getValue().toString())+1);
+                    pids.add(Integer.parseInt(dataSnapshot.child("USERS").child(userId).child(role).child(Integer.toString(i)).child("PID").getValue().toString()));
 
                 }
                 if(role.equals("Wkt")){
                     for(int i=0;i<par2;i++){
-                        pids.add(Integer.parseInt(dataSnapshot.child("USERS").child(userId).child("Bat").child(Integer.toString(i)).child("PID").getValue().toString())+1);
+                        pids.add(Integer.parseInt(dataSnapshot.child("USERS").child(userId).child("Bat").child(Integer.toString(i)).child("PID").getValue().toString()));
 
                     }
                 }
                 userMon = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("Price").getValue().toString());
                 fore = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("Foreign").getValue().toString());
 
-                for(int i=0;i<=3;i++){
+                for(int i=0;i<=4;i++){
                      DataSnapshot ds = dataSnapshot.child("PLAYERS").child(Integer.toString(i));
                     Players player = new Players();
                    //player.setAge(Integer.parseInt((String) ds.child("Age").getValue()));
@@ -169,6 +169,7 @@ public class PlayerList extends AppCompatActivity {
             (country.equals("Any") || p.getCountry().toLowerCase().contains(country.toLowerCase())) && (team.equals("Any") || p.getTeam().startsWith(team))
                     && ((maxPrice.equals("Any") || p.getPrice()<=Integer.parseInt(maxPrice))) &&
                     ((minPrice.equals("Any") || p.getPrice()>=Integer.parseInt(minPrice))) && (!pids.contains(p.getId())))
+
                 filtered.add(p);
 
         }
@@ -188,7 +189,7 @@ public class PlayerList extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                int Pid = filtered.get(position).getId() - 1;
+                int Pid = filtered.get(position).getId() ;
                 Players pp = players.get(Pid);
                 if(one.equals("Yes")&&pp.getPrice()+userMon>110){
                     Toast.makeText(PlayerList.this, "Price too high.",
