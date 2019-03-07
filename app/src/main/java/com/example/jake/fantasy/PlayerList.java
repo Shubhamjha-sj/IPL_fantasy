@@ -107,7 +107,7 @@ public class PlayerList extends AppCompatActivity {
                 }
                 if(role.equals("Wkt")) {
                     par = Integer.parseInt(dataSnapshot.child("USERS").child(userId).child("WktKeeperSel").getValue().toString());
-                    par2 = Integer.parseInt(dataSnapshot.child("USERS").child(userId).child("BatsmenSel").getValue().toString());
+                   // par2 = Integer.parseInt(dataSnapshot.child("USERS").child(userId).child("BatsmenSel").getValue().toString());
                 }
                     if(role.equals("Bowl"))
                     par = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("BowlerSel").getValue().toString());
@@ -117,12 +117,12 @@ public class PlayerList extends AppCompatActivity {
                     pids.add(Integer.parseInt(dataSnapshot.child("USERS").child(userId).child(role).child(Integer.toString(i)).child("PID").getValue().toString()));
 
                 }
-                if(role.equals("Wkt")){
+              /*  if(role.equals("Wkt")){
                     for(int i=0;i<par2;i++){
                         pids.add(Integer.parseInt(dataSnapshot.child("USERS").child(userId).child("Bat").child(Integer.toString(i)).child("PID").getValue().toString()));
 
                     }
-                }
+                }*/
                 userMon = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("Price").getValue().toString());
                 fore = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("Foreign").getValue().toString());
 
@@ -165,7 +165,7 @@ public class PlayerList extends AppCompatActivity {
         filtered = new ArrayList<>();
         for(int i=0;i<players.size();i++){
             Players p = players.get(i);
-            if((role.equals("Any") || role.equals(p.getRole()) || (role.equals("Bat") && p.getRole().equals("Wkt"))) && (name.equals("Any") || p.getName().toLowerCase().contains(name.toLowerCase()))&&
+            if((role.equals("Any") || role.equals(p.getRole()) ) && (name.equals("Any") || p.getName().toLowerCase().contains(name.toLowerCase()))&&
             (country.equals("Any") || p.getCountry().toLowerCase().contains(country.toLowerCase())) && (team.equals("Any") || p.getTeam().startsWith(team))
                     && ((maxPrice.equals("Any") || p.getPrice()<=Integer.parseInt(maxPrice))) &&
                     ((minPrice.equals("Any") || p.getPrice()>=Integer.parseInt(minPrice))) && (!pids.contains(p.getId())))
