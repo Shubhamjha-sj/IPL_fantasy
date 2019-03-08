@@ -101,7 +101,7 @@ public class LeadFragment extends Fragment {
                         player.setRole((String)ds.child("Role").getValue());
                         player.setTeam((String)ds.child("Team").getValue());
                         player.setUrl((String)ds.child("ImageURL").getValue());
-                        player.setTotScore(((Long) ds.child("TotScore").getValue()).intValue());
+                        player.setTotScore(0);
                         player.setPrice(((Long) ds.child("Price").getValue()).intValue());
                         player.setId(i);
                         Log.d("tot",Integer.toString(i)+ "  " +Integer.toString(player.getTotScore()));

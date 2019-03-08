@@ -104,8 +104,8 @@ public class TabbedActiviy extends AppCompatActivity {
     public void setupViewPager(ViewPager viewPager){
         SectionPageAdapter adapter = new SectionPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new TeamFragment(),"MY TEAM");
-        adapter.addFragment(new LeadFragment(),"LEADERBOARD");
-        adapter.addFragment(new FixtFragment(),"FIXTURES");
+        //adapter.addFragment(new LeadFragment(),"LEADERBOARD");
+       // adapter.addFragment(new FixtFragment(),"FIXTURES");
         viewPager.setAdapter(adapter);
     }
 

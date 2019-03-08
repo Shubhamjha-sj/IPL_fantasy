@@ -28,18 +28,18 @@ public class Leaders {
     }
 
     public String getTeamName() {
-        return teamName;
+        return "a";
     }
 
     public String getOwner() {
-        return owner;
+        return "a";
     }
 
     public String getUserId() {
-        return userId;
+        return "a";
     }
 
     public int getPoints() {
-        return points;
+        return 0;
     }
 }
