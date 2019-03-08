@@ -49,9 +49,7 @@ public class TeamFragment extends Fragment {
         super.onCreate(savedInstanceState);
         total = 0;
         foreign = 0;
-        tmName = view.findViewById(R.id.nameteam);
-        tmMotto = view.findViewById(R.id.Motto);
-        rank = view.findViewById(R.id.ranks);
+
         userId=getActivity().getIntent().getStringExtra("userId");
         //showProgressDialog();
         bats = new ArrayList<>();
@@ -62,9 +60,9 @@ public class TeamFragment extends Fragment {
         bolL = view.findViewById(R.id.bowlList1);
         allL = view.findViewById(R.id.allList1);
         wktL = view.findViewById(R.id.wktList1);
-        point = view.findViewById(R.id.points);
+
         edit = view.findViewById(R.id.editTeam);
-        stats = view.findViewById(R.id.viewStats);
+
         edit.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -76,17 +74,7 @@ public class TeamFragment extends Fragment {
                 startActivity(startIntent);
             }
         });
-        stats.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View view) {
-                //signIn.setBackgroundColor(Color.GRAY);
-                Intent startIntent = new Intent(getActivity(),TeamStats.class);
-                startIntent.putExtra("userId",userId);
-
-                startActivity(startIntent);
-            }
-        });
         //submit = findViewById(R.id.submit);
         showProgressDialog();
         getData();
@@ -101,13 +89,10 @@ public class TeamFragment extends Fragment {
             public void onDataChange(DataSnapshot data) {
                 DataSnapshot dataSnapshot = data.child("USERS").child(userId);
                 //TextView balance = findViewById(R.id.total_balance_value);
-                teamName = (String)dataSnapshot.child("TeamName").getValue();
+
                 //Log.d(TAG,teamName);
-                tmName.setText(teamName);
-                teamMotto = (String)dataSnapshot.child("TeamMotto").getValue();
-                //Log.d(TAG,teamName);
-                tmMotto.setText(teamMotto);
-                rank.setText("Rank: "+dataSnapshot.child("Rank").getValue().toString());
+
+
                 //Log.d(TAG,"hoise");
                 batno = Integer.parseInt(dataSnapshot.child("Batsmen").getValue().toString());
                 bolno  = Integer.parseInt(dataSnapshot.child("Bowler").getValue().toString());
@@ -226,7 +211,7 @@ public class TeamFragment extends Fragment {
                 mone.setText(Integer.toString(money-price)+"M$");
                 */
                 dref.child("USERS").child(userId).child("Score").setValue(teamScore);
-                point.setText("Points: "+Integer.toString(teamScore));
+
 
 
                 generateLists();
@@ -256,7 +241,7 @@ public class TeamFragment extends Fragment {
         Utility.setListViewHeightBasedOnChildren(wktL);
         Utility.setListViewHeightBasedOnChildren(allL);
         Utility.setListViewHeightBasedOnChildren(bolL);
-        batL.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       /* batL.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
@@ -295,7 +280,7 @@ public class TeamFragment extends Fragment {
                 //startIntent.putExtra("Money",Integer.toString(money));
                 startActivity(startIntent);
             }
-        });
+        });*/
 
         hideProgressDialog();
     }

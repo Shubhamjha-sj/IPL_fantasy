@@ -40,17 +40,18 @@
 
         android:text="Player Name"
         android:textSize="15dp" />
+
     <TextView
         android:id="@+id/pPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="42dp"
         android:layout_alignLeft="@id/pName"
-        android:layout_marginLeft="190dp"
-        android:textColor="#000"
-
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="42dp"
         android:text="Price:"
+
+        android:textColor="#000"
         android:textSize="24dp" />
 
     <TextView
@@ -80,13 +81,12 @@
         android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="40dp"
         android:layout_alignLeft="@id/pName"
-        android:layout_marginLeft="255dp"
-        android:textColor="#000"
-
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="225dp"
+        android:layout_marginTop="40dp"
         android:text="10M$"
-        android:textSize="26dp"
-        />
+
+        android:textColor="#000"
+        android:textSize="26dp" />
 </RelativeLayout>
