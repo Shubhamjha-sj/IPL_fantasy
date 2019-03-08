@@ -30,17 +30,20 @@
             android:text="View Stats"
             android:background="@color/colorPrimaryDark"
             android:textColor="#FFF"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:visibility="gone"/>
+
         <Button
             android:id="@+id/editTeam"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
             android:layout_marginLeft="280dp"
-            android:text="Edit Team"
-            android:textSize="18dp"
+            android:layout_marginTop="60dp"
             android:background="@color/colorPrimaryDark"
-            android:textColor="#FFF"/>
+            android:text="Edit Team"
+            android:textColor="#FFF"
+            android:textSize="18dp"
+             />
 
         <TextView
             android:id="@+id/Motto"

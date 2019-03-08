@@ -75,7 +75,7 @@ public class TabbedActiviy extends AppCompatActivity {
             }
         }
         toolbarTitle.setTypeface(tf1);
-        // Create the adapter that will return a fragment for each of the three
+        /// Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
        /* mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
