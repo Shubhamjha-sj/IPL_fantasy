@@ -27,11 +27,11 @@
         android:id="@+id/money"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
         android:layout_marginLeft="230dp"
-        android:hint="Money Left:"
-        android:textSize="22dp"
-        android:textColor="#000"/>
+        android:layout_marginTop="55dp"
+        android:hint="Credit Left:"
+        android:textColor="#000"
+        android:textSize="22dp" />
     <TextView
         android:id="@+id/mon"
         android:layout_width="170dp"

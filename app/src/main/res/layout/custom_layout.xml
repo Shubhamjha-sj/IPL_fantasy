@@ -87,5 +87,6 @@
         android:textColor="#000"
 
         android:text="10M$"
-        android:textSize="26dp" />
+        android:textSize="26dp"
+        />
 </RelativeLayout>

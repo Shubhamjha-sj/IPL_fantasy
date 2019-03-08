@@ -283,7 +283,7 @@ public class PlayerList extends AppCompatActivity {
             name.setText(filtered.get(i).getName());
             roll.setText(filtered.get(i).getRole());
             team.setText(filtered.get(i).getTeam());
-            prices.setText(Integer.toString(filtered.get(i).getPrice())+"M$");
+            prices.setText(Integer.toString(filtered.get(i).getPrice()));
             price.setText("Price");
 
 

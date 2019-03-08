@@ -245,7 +245,7 @@ public class CreatingTeam2 extends AppCompatActivity {
                     dref.child("USERS").child(userId).child("Price").setValue(price);
                 }
 
-                mone.setText(Integer.toString(money-price)+"M$");
+                mone.setText(Integer.toString(money-price));
 
                 generateLists();
             }
@@ -422,7 +422,7 @@ public class CreatingTeam2 extends AppCompatActivity {
                 name.setText(pplayers.get(i).getName());
                 roll.setText(pplayers.get(i).getRole());
                 team.setText(pplayers.get(i).getTeam());
-                prices.setText(Integer.toString(pplayers.get(i).getPrice())+"M$");
+                prices.setText(Integer.toString(pplayers.get(i).getPrice()));
              }
              else{
 

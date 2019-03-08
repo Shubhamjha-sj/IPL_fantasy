@@ -335,11 +335,11 @@ public class TeamFragment extends Fragment {
 
             String url = pplayers.get(i).getUrl();
             loadimage(url,image);
-            price.setText("Point");
+            price.setText("Price");
                 name.setText(pplayers.get(i).getName());
                 roll.setText(pplayers.get(i).getRole());
                 team.setText(pplayers.get(i).getTeam());
-                prices.setText(Integer.toString(pplayers.get(i).getTotScore()));
+                prices.setText(Integer.toString(pplayers.get(i).getPrice()));
 
             return view;
         }
