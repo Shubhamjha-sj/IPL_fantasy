@@ -168,6 +168,7 @@ public class CreatingTeam2 extends AppCompatActivity {
                         player.setPrice(((Long) ds.child("Price").getValue()).intValue());
                         player.setUrl((String)ds.child("ImageURL").getValue());
                         player.setId(((Long) ds.child("PlayerId").getValue()).intValue());
+
                         if(!player.getCountry().startsWith("Bangla")) foreign++;
                         price += player.getPrice();
                         bats.add(player);

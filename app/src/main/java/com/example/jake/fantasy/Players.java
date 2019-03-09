@@ -7,7 +7,7 @@ package com.example.jake.fantasy;
 public class Players {
     String name;
     String country;
-    int age,id,price,totScore;
+    int age,id,price,totScore,count=0;
     String Role;
     String Team;
     String url;
@@ -40,6 +40,9 @@ public class Players {
     public void setId(int id) {
         this.id = id;
     }
+    public void setCount(int count) {
+        this.count = count;
+    }
 
     public void setPrice(int price) {
         this.price = price;
@@ -63,6 +66,9 @@ public class Players {
 
     public String getCountry() {
         return country;
+    }
+    public int getCount() {
+        return count;
     }
 
     public int getAge() {

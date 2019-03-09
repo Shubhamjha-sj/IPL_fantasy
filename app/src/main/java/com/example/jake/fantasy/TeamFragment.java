@@ -3,6 +3,7 @@ package com.example.jake.fantasy;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -33,12 +34,12 @@ import java.util.ArrayList;
 public class TeamFragment extends Fragment {
     private static final String TAG = "TeamFragment";
     int batno,bolno,allno,batsel,bolsel,wktsel,allsel,money,total,foreign = 0,price=0,k=0;
-    DatabaseReference dref;
+    DatabaseReference dref,ddref,cref;
     TextView tmMotto,tmName,point,rank;
     ArrayList<Players> bats,bowls,alls,wkts;
     ListView batL,bolL,allL,wktL;
     String userId,teamName,teamMotto;
-    Button edit,stats;
+    Button edit,stats,popularPlayers;
 
     ValueEventListener mListener;
     public ProgressDialog mProgressDialog;
@@ -60,6 +61,104 @@ public class TeamFragment extends Fragment {
         bolL = view.findViewById(R.id.bowlList1);
         allL = view.findViewById(R.id.allList1);
         wktL = view.findViewById(R.id.wktList1);
+        popularPlayers=view.findViewById(R.id.popularPlayers);
+        popularPlayers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               ddref=FirebaseDatabase.getInstance().getReference();
+                    for(int i=0;i<batno;i++){
+                        for(Players player:bats){
+                           final int pid=player.getId();
+
+                            ddref.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot data) {
+                                    DataSnapshot dataSnapshot = data.child("PLAYERS").child(Integer.toString(pid));
+                                    ddref.child("PLAYERS").child(Integer.toString(pid)).child("count").setValue((Long)dataSnapshot.child("count").getValue()+1);
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+
+                            Log.i("pid",Integer.toString(pid));
+
+                        }
+
+                    }
+                for(int i=0;i<bolno;i++){
+                    for(Players player:bowls){
+                        final int pid=player.getId();
+
+                        ddref.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot data) {
+                                DataSnapshot dataSnapshot = data.child("PLAYERS").child(Integer.toString(pid));
+                                ddref.child("PLAYERS").child(Integer.toString(pid)).child("count").setValue((Long)dataSnapshot.child("count").getValue()+1);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+                        Log.i("pid",Integer.toString(pid));
+
+                    }
+
+                }
+                for(int i=0;i<1;i++){
+                    for(Players player:wkts){
+                        final int pid=player.getId();
+
+                        ddref.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot data) {
+                                DataSnapshot dataSnapshot = data.child("PLAYERS").child(Integer.toString(pid));
+                                ddref.child("PLAYERS").child(Integer.toString(pid)).child("count").setValue((Long)dataSnapshot.child("count").getValue()+1);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+                        Log.i("pid",Integer.toString(pid));
+
+                    }
+
+                }
+                for(int i=0;i<allno;i++){
+                    for(Players player:alls){
+                        final int pid=player.getId();
+
+                        ddref.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot data) {
+                                DataSnapshot dataSnapshot = data.child("PLAYERS").child(Integer.toString(pid));
+                                ddref.child("PLAYERS").child(Integer.toString(pid)).child("count").setValue((Long)dataSnapshot.child("count").getValue()+1);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+                        Log.i("pid",Integer.toString(pid));
+
+                    }
+
+                }
+
+
+
+            }
+        });
 
         edit = view.findViewById(R.id.editTeam);
 
@@ -126,6 +225,7 @@ public class TeamFragment extends Fragment {
                         player.setUrl((String)ds.child("ImageURL").getValue());
                         player.setPrice(((Long) ds.child("Price").getValue()).intValue());
                         player.setId(Integer.parseInt(pid));
+                       // dref.child("PLAYERS").child(pid).child("count").setValue((Long)ds.child("count").getValue()+1);
                         //if(!player.getCountry().startsWith("Bangla")) foreign++;
                         //price += player.getPrice();
                         bats.add(player);
@@ -284,6 +384,7 @@ public class TeamFragment extends Fragment {
 
         hideProgressDialog();
     }
+
 
     class CustomAdapter extends BaseAdapter {
 

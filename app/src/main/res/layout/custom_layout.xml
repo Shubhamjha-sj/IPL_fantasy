@@ -85,8 +85,9 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="225dp"
         android:layout_marginTop="40dp"
-        android:text="10M$"
+        android:layout_marginRight="20dp"
 
+        android:text="10M$"
         android:textColor="#000"
         android:textSize="26dp" />
 </RelativeLayout>
