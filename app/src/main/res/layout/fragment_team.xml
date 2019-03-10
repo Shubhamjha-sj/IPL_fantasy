@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context="com.example.jake.fantasy.CreatingTeam1">
+
+
+        <TextView
+            android:id="@+id/bats"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:layout_weight="1"
+            android:text="Batsmen:"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <ListView
+            android:id="@+id/batList1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp" />
+
+        <TextView
+            android:id="@+id/wkts"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/batList1"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="WktKeeper:"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <ListView
+            android:id="@+id/wktList1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/wkts"
+            android:layout_marginTop="10dp" />
+
+
+        <TextView
+            android:id="@+id/alls"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/wktList1"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="AllRounders:"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <ListView
+            android:id="@+id/allList1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/alls"
+            android:layout_marginTop="10dp" />
+
+
+        <TextView
+            android:id="@+id/bowl"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/allList1"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="Bowlers:"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <ListView
+            android:id="@+id/bowlList1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bowl"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="60dp" />
+
+        <Button
+            android:id="@+id/editTeam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="80dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="Edit Team"
+            android:textColor="#FFF"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/popularPlayers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="updateFirebase"
+            android:text="Button" />
+
+
+    </RelativeLayout>
+
+
+
+</ScrollView>

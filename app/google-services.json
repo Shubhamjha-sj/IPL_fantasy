@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "451866167861",
+    "firebase_url": "https://fir-377a2.firebaseio.com",
+    "project_id": "fir-377a2",
+    "storage_bucket": "fir-377a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451866167861:android:008f8fe9757e2fca",
+        "android_client_info": {
+          "package_name": "com.example.jake.fantasy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "451866167861-97oqo93dv5oj5e64llp5hs0h99o5q5j1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jake.fantasy",
+            "certificate_hash": "f3a91faf80c85b0bb4a9a9bcf3bf863ae7e894c5"
+          }
+        },
+        {
+          "client_id": "451866167861-1fnbcgec42343loig2cluhtsppqj8s7e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jake.fantasy",
+            "certificate_hash": "b1971eed374bba8cf6d5fc3616e3d56e1bf65028"
+          }
+        },
+        {
+          "client_id": "451866167861-nkmjebld2g0q0p67qj4dvuv7jrbcnun4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgdiwz7-Ee7zwmYBYopiar7UGp7x_T7cA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "451866167861-nkmjebld2g0q0p67qj4dvuv7jrbcnun4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
