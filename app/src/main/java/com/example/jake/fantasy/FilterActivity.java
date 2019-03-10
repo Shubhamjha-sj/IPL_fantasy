@@ -15,9 +15,9 @@ public class FilterActivity extends AppCompatActivity {
 
 
     EditText name;
-    String []countries = {"Any","Bangladesh","Australia","England","West Indies","Zimbabwe","Pakistan"
+    String []countries = {"Any","Bangladesh","Australia","England","West Indies","Zimbabwe","India"
             ,"Afghanistan","England","New Zealand","Sri Lanka","South Africa"};
-    String []teams = {"Any","Dhaka","Chittagong","Rangpur","Sylhet","Rajshahi","Commilla","Khulna"};
+    String []teams = {"KKR","RCB","CSK","DC","MI","RR","SRH","KXIP"};
     String []MaxPrices = {"15","14","13","12","11","10","9","8","7","6","5"};
     String []MinPrices = {"15","14","13","12","11","10","9","8","7","6","5"};
     ArrayAdapter<String> arrayCoun, arrayTeam,arrayMax,arrayMin;
