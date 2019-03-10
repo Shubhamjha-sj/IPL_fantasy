@@ -26,7 +26,6 @@ import com.google.firebase.database.ServerValue;
 public class CreateAccountActivity extends AppCompatActivity implements
         View.OnClickListener {
 
-
     Button signIn;
     EditText name,email,password,conpass;
     private FirebaseAuth mAuth;
