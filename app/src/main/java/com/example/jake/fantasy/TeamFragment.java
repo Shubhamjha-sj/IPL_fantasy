@@ -191,12 +191,25 @@ public class TeamFragment extends Fragment {
 
                 }
                 hasSubmmited=Long.valueOf(1);
+                    Intent startIntent = new Intent(getActivity(),PopularPlayers.class);
+                    startIntent.putExtra("userId",userId);
+                    startIntent.putExtra("Team1",t1);
+                    startIntent.putExtra("Team2",t2);
+                    startIntent.putExtra("mid",mid);
+                    startActivity(startIntent);
 
 
 
             }
             else{
                     Log.i("Msg","Already Submitted");
+                    Intent startIntent = new Intent(getActivity(),PopularPlayers.class);
+                    startIntent.putExtra("userId",userId);
+                    startIntent.putExtra("Team1",t1);
+                    startIntent.putExtra("Team2",t2);
+                    startIntent.putExtra("mid",mid);
+                    startActivity(startIntent);
+
                 }
 
             }

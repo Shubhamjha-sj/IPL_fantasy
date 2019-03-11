@@ -35,7 +35,7 @@ public class Fixture extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fixture);
-      final String userId=getIntent().getStringExtra("userId");
+        final String userId=getIntent().getStringExtra("userId");
         teamsL = new ArrayList<>();
         matchnoL = new ArrayList<>();
         venueL = new ArrayList<>();

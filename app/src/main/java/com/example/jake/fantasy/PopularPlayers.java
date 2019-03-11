@@ -4,10 +4,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.support.v7.app.ActionBar;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,11 +26,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-/**
- * Created by jake on 1/10/18.
- */
-
-public class PlayerList extends AppCompatActivity {
+public class PopularPlayers extends AppCompatActivity {
     DatabaseReference dref;
     ArrayList <Players> players;
     ArrayList <Players> filtered;
@@ -44,61 +38,18 @@ public class PlayerList extends AppCompatActivity {
     Button filter;
     public ProgressDialog mProgressDialog;
     ValueEventListener mListener;
-
-    private static final String TAG = "filter";
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        //Log.d(TAG, "Ekhane");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_player_list);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Select Squad");
-
-        Log.d(TAG,"vorse");
-        role=getIntent().getStringExtra("Role");
-        country=getIntent().getStringExtra("Country");
-        name=getIntent().getStringExtra("Name");
-        team=getIntent().getStringExtra("Team");
-        maxPrice=getIntent().getStringExtra("MaxPrice");
-        minPrice=getIntent().getStringExtra("MinPrice");
+        setContentView(R.layout.activity_final);
         t1=getIntent().getStringExtra("Team1");
         t2=getIntent().getStringExtra("Team2");
         mid=getIntent().getStringExtra("mid");
-        Log.i("PL",mid);
-
-
-        //String sortBy=getIntent().getStringExtra("SortBy");
-        userId=getIntent().getStringExtra("UserId");
-        Log.d(TAG,"vorse");
-        posi=getIntent().getStringExtra("Position");
-        one = getIntent().getStringExtra("One");
-        //fore = Integer.parseInt(getIntent().getStringExtra("Fore"));
-        //posi = "0";
-        Log.d(TAG,"vorse");
-        listView = findViewById(R.id.playerList);
+        userId=getIntent().getStringExtra("userId");
+        Log.i("Team2",t2);
+        listView = findViewById(R.id.playerList1);
         showProgressDialog();
         populatePlayers();
-        filter = findViewById(R.id.filterP);
-
-        filter.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                //signIn.setBackgroundColor(Color.GRAY);
-                Intent startIntent = new Intent(PlayerList.this,FilterActivity.class);
-                startIntent.putExtra("UserId",userId);
-                startIntent.putExtra("One",one);
-                startIntent.putExtra("Position",posi);
-                startIntent.putExtra("Role",role);
-                Log.d(TAG,"puts");
-                startActivity(startIntent);
-                Log.d(TAG,"puts");
-            }
-        });
-
-    }
-
+       }
     void populatePlayers(){
         players = new ArrayList<>();
         dref = FirebaseDatabase.getInstance().getReference();
@@ -106,7 +57,7 @@ public class PlayerList extends AppCompatActivity {
         mListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                int par2 = 0;
+               /* int par2 = 0;
                 //Log.d(TAG, "Dhuke");
                 if(role.equals("Bat")) {
                     par = Integer.parseInt(dataSnapshot.child("USERS").child(userId).child("BatsmenSel").getValue().toString());
@@ -114,9 +65,9 @@ public class PlayerList extends AppCompatActivity {
                 }
                 if(role.equals("Wkt")) {
                     par = Integer.parseInt(dataSnapshot.child("USERS").child(userId).child("WktKeeperSel").getValue().toString());
-                   // par2 = Integer.parseInt(dataSnapshot.child("USERS").child(userId).child("BatsmenSel").getValue().toString());
+                    // par2 = Integer.parseInt(dataSnapshot.child("USERS").child(userId).child("BatsmenSel").getValue().toString());
                 }
-                    if(role.equals("Bowl"))
+                if(role.equals("Bowl"))
                     par = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("BowlerSel").getValue().toString());
                 if(role.equals("All"))
                     par = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("AllrounderSel").getValue().toString());
@@ -124,19 +75,19 @@ public class PlayerList extends AppCompatActivity {
                     pids.add(Integer.parseInt(dataSnapshot.child("USERS").child(userId).child(role).child(Integer.toString(i)).child("PID").getValue().toString()));
 
                 }
-              /*  if(role.equals("Wkt")){
+               if(role.equals("Wkt")){
                     for(int i=0;i<par2;i++){
                         pids.add(Integer.parseInt(dataSnapshot.child("USERS").child(userId).child("Bat").child(Integer.toString(i)).child("PID").getValue().toString()));
 
                     }
-                }*/
+                }
                 userMon = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("Price").getValue().toString());
-                fore = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("Foreign").getValue().toString());
+                fore = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("Foreign").getValue().toString());*/
 
                 for(int i=0;i<=48;i++){
-                     DataSnapshot ds = dataSnapshot.child("PLAYERS").child(Integer.toString(i));
+                    DataSnapshot ds = dataSnapshot.child("PLAYERS").child(Integer.toString(i));
                     Players player = new Players();
-                   //player.setAge(Integer.parseInt((String) ds.child("Age").getValue()));
+                    //player.setAge(Integer.parseInt((String) ds.child("Age").getValue()));
                     player.setAge(18);
                     player.setCountry((String)ds.child("Country").getValue());
                     //Log.d("cou", player.getCountry());
@@ -163,7 +114,7 @@ public class PlayerList extends AppCompatActivity {
         };
 
         dref.addValueEventListener(mListener);
-        Log.d(TAG, "Dhuke");
+
         //while(players.size()<165);
         //Log.d(TAG, players.get(0).getName());
 
@@ -174,10 +125,7 @@ public class PlayerList extends AppCompatActivity {
             Players p = players.get(i);
             Log.i("team",p.getTeam());
 
-            if((role.equals("Any") || role.equals(p.getRole()) ) && (name.equals("Any") || p.getName().toLowerCase().contains(name.toLowerCase()))&&
-            (country.equals("Any") || p.getCountry().toLowerCase().contains(country.toLowerCase())) && (team.equals("Any") || p.getTeam().startsWith(team))
-                    && ((maxPrice.equals("Any") || p.getPrice()<=Integer.parseInt(maxPrice))) &&
-                    ((minPrice.equals("Any") || p.getPrice()>=Integer.parseInt(minPrice))) && (!pids.contains(p.getId()))&&((p.getTeam().equals(t1)||p.getTeam().equals(t2))))
+            if(((p.getTeam().equals(t1)||p.getTeam().equals(t2))))
 
                 filtered.add(p);
 
@@ -185,67 +133,16 @@ public class PlayerList extends AppCompatActivity {
     }
     void generateListView(){
 
-        Log.d(TAG, "geege");
+
         CustopmAdapter custopmAdapter = new CustopmAdapter();
 
-        Log.d(TAG, "geege");
+
         listView.setAdapter(custopmAdapter);
         hideProgressDialog();
 
         dref = FirebaseDatabase.getInstance().getReference();
         dref = dref.child("USERS").child(userId);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position,
-                                    long id) {
-                int Pid = filtered.get(position).getId() ;
-                Players pp = players.get(Pid);
-                if(one.equals("Yes")&&pp.getPrice()+userMon>110){
-                    Toast.makeText(PlayerList.this, "Price too high.",
-                            Toast.LENGTH_SHORT).show();
-                    return;
-                }
 
-                if(!pp.getCountry().startsWith("India")){
-                    if(fore==5) {
-                        Toast.makeText(PlayerList.this, "Maximum 5 foreign players allowed",
-                                Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                }
-               // showProgressDialog(2);
-                dref.child(role).child(posi).child("PID").setValue(Pid);
-                dref.child(role).child(posi).child("Score").setValue(0);
-                if(one.equals("Yes")){
-                    if(role.equals("Bat")){
-                        dref.child("BatsmenSel").setValue(Integer.toString(par+1));
-                    }
-                    if(role.equals("All")){
-                        dref.child("AllrounderSel").setValue(Integer.toString(par+1));
-                    }
-                    if(role.equals("Bowl")){
-                        dref.child("BowlerSel").setValue(Integer.toString(par+1));
-                    }
-                    if(role.equals("Wkt")){
-                        dref.child("WktKeeperSel").setValue(Integer.toString(par+1));
-                    }
-                }
-                Intent startIntent = new Intent(PlayerList.this,CreatingTeam2.class);
-                startIntent.putExtra("Team1",t1);
-                startIntent.putExtra("Team2",t2);
-                startIntent.putExtra("mid",mid);
-                try {
-                    Thread.sleep(1000);
-                } catch(Exception ex) {/* */}
-
-                startIntent.putExtra("userId",userId);
-                startIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                hideProgressDialog();
-                startActivity(startIntent);
-                finish();
-
-            }
-        });
 
     }
     class CustopmAdapter extends BaseAdapter{
@@ -267,36 +164,35 @@ public class PlayerList extends AppCompatActivity {
         }
 
         @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
+        public View getView(final int i, View view, ViewGroup viewGroup) {
+            dref = FirebaseDatabase.getInstance().getReference();
+
             view = getLayoutInflater().inflate(R.layout.custom_layout,null);
             ImageView image = view.findViewById(R.id.listIm);
             TextView name = view.findViewById(R.id.pName);
             TextView roll= view.findViewById(R.id.pRole);
             TextView price = view.findViewById(R.id.pPrice);
             TextView team = view.findViewById(R.id.pTeam);
-            TextView prices = view.findViewById(R.id.price);
+            final TextView prices = view.findViewById(R.id.price);
             String url = filtered.get(i).getUrl();
-            TextView tv4 = view.findViewById(R.id.vstats);
-            tv4.setText("View Stats");
-            final int j = i;
-            tv4.setPaintFlags(tv4.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-            tv4.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View view) {
-                    Intent startIntent = new Intent(PlayerList.this,PlayerStat.class);
-                    startIntent.putExtra("PlayerId",Integer.toString(filtered.get(j).getId()-1));
-                    //startIntent.putExtra("Money",Integer.toString(money));
-                    startActivity(startIntent);
-                }
-            });
             loadimage(url,image);
-            //image.setImageResource(R.drawable.anon);
             name.setText(filtered.get(i).getName());
             roll.setText(filtered.get(i).getRole());
             team.setText(filtered.get(i).getTeam());
-            prices.setText(Integer.toString(filtered.get(i).getPrice()));
-            price.setText("Price");
+            dref.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                    prices.setText(String.format("%.2f",((Long)dataSnapshot.child("PLAYERS").child(Integer.toString(i)).child("count").getValue()*1.0/(Long) dataSnapshot.child("MATCHES").child(mid).child("contestants").getValue()*1.0)*100));
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+            price.setText("%age");
 
 
             id = players.get(i).getId();
@@ -328,7 +224,7 @@ public class PlayerList extends AppCompatActivity {
 
             mProgressDialog.setMessage("Generating Player List");
 
-                //mProgressDialog.setMessage("Adding Player to the squad.");
+            //mProgressDialog.setMessage("Adding Player to the squad.");
             mProgressDialog.setIndeterminate(true);
 
         }
@@ -366,4 +262,6 @@ public class PlayerList extends AppCompatActivity {
         }
 
     }
+
+
 }
