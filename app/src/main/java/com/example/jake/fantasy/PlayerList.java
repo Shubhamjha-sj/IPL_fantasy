@@ -39,7 +39,7 @@ public class PlayerList extends AppCompatActivity {
     ListView listView;
     int userMon,fore;
     ArrayList<Integer> pids = new ArrayList<>();
-    String role,country,name,maxPrice,minPrice,userId,team,posi,one,t1,t2;
+    String role,country,name,maxPrice,minPrice,userId,team,posi,one,t1,t2,mid;
     int tot,par;
     Button filter;
     public ProgressDialog mProgressDialog;
@@ -64,6 +64,7 @@ public class PlayerList extends AppCompatActivity {
         minPrice=getIntent().getStringExtra("MinPrice");
         t1=getIntent().getStringExtra("Team1");
         t2=getIntent().getStringExtra("Team2");
+        mid=getIntent().getStringExtra("mid");
 
 
         //String sortBy=getIntent().getStringExtra("SortBy");
@@ -231,6 +232,7 @@ public class PlayerList extends AppCompatActivity {
                 Intent startIntent = new Intent(PlayerList.this,CreatingTeam2.class);
                 startIntent.putExtra("Team1",t1);
                 startIntent.putExtra("Team2",t2);
+                startIntent.putExtra("mid",mid);
                 try {
                     Thread.sleep(1000);
                 } catch(Exception ex) {/* */}

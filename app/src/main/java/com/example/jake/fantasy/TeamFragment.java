@@ -34,11 +34,12 @@ import java.util.ArrayList;
 public class TeamFragment extends Fragment {
     private static final String TAG = "TeamFragment";
     int batno,bolno,allno,batsel,bolsel,wktsel,allsel,money,total,foreign = 0,price=0,k=0;
+    Long hasSubmmited;
     DatabaseReference dref,ddref,cref;
     TextView tmMotto,tmName,point,rank;
     ArrayList<Players> bats,bowls,alls,wkts;
     ListView batL,bolL,allL,wktL;
-    String userId,teamName,teamMotto,t1,t2;
+    String userId,teamName,teamMotto,t1,t2,mid;
     Button edit,stats,popularPlayers;
 
     ValueEventListener mListener;
@@ -54,6 +55,10 @@ public class TeamFragment extends Fragment {
         userId=getActivity().getIntent().getStringExtra("userId");
         t1=getActivity().getIntent().getStringExtra("Team1");
         t2=getActivity().getIntent().getStringExtra("Team2");
+        mid=getActivity().getIntent().getStringExtra("mid");
+       Log.i("mid",mid);
+        //mid="0";
+
 
         //showProgressDialog();
         bats = new ArrayList<>();
@@ -65,10 +70,38 @@ public class TeamFragment extends Fragment {
         allL = view.findViewById(R.id.allList1);
         wktL = view.findViewById(R.id.wktList1);
         popularPlayers=view.findViewById(R.id.popularPlayers);
+        dref = FirebaseDatabase.getInstance().getReference();
+        dref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot data) {
+                hasSubmmited= (Long) data.child("USERS").child(userId).child("HasSubmitted").getValue();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         popularPlayers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(hasSubmmited==0){
                ddref=FirebaseDatabase.getInstance().getReference();
+               cref=FirebaseDatabase.getInstance().getReference();
+                    cref.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot data) {
+                            DataSnapshot dataSnapshot = data.child("MATCHES").child(mid);
+                            cref.child("MATCHES").child(mid).child("contestants").setValue((Long)dataSnapshot.child("contestants").getValue()+1);
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
                     for(int i=0;i<batno;i++){
                         for(Players player:bats){
                            final int pid=player.getId();
@@ -157,8 +190,14 @@ public class TeamFragment extends Fragment {
                     }
 
                 }
+                hasSubmmited=Long.valueOf(1);
 
 
+
+            }
+            else{
+                    Log.i("Msg","Already Submitted");
+                }
 
             }
         });

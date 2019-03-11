@@ -39,7 +39,7 @@ public class CreatingTeam2 extends AppCompatActivity {
     TextView plse,mone,tmName;
     ArrayList<Players> bats,bowls,alls,wkts;
     ListView batL,bolL,allL,wktL;
-    String userId,teamName;
+    String userId,teamName,mid;
     Button submit;
     FirebaseAuth mAuth;
     String t1,t2;
@@ -64,6 +64,8 @@ public class CreatingTeam2 extends AppCompatActivity {
         userId=getIntent().getStringExtra("userId");
         t1=getIntent().getStringExtra("Team1");
         t2=getIntent().getStringExtra("Team2");
+        mid=getIntent().getStringExtra("mid");
+        Log.i("mid",mid);
 
 
         showProgressDialog();
@@ -84,7 +86,7 @@ public class CreatingTeam2 extends AppCompatActivity {
                     startIntent.putExtra("userId",userId);
                     startIntent.putExtra("Team1",t1);
                     startIntent.putExtra("Team2",t2);
-
+                    startIntent.putExtra("mid",mid);
                     startIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(startIntent);
                     finish();
@@ -297,6 +299,7 @@ public class CreatingTeam2 extends AppCompatActivity {
                 startIntent.putExtra("Team","Any");
                 startIntent.putExtra("Team1",t1);
                 startIntent.putExtra("Team2",t2);
+                startIntent.putExtra("mid",mid);
 
                 //startIntent.putExtra("Money",Integer.toString(money));
                 //startIntent.putExtra("Fore",Integer.toString(foreign));
@@ -326,6 +329,7 @@ public class CreatingTeam2 extends AppCompatActivity {
                 startIntent.putExtra("Team","Any");
                 startIntent.putExtra("Team1",t1);
                 startIntent.putExtra("Team2",t2);
+                startIntent.putExtra("mid",mid);
                 //startIntent.putExtra("Money",Integer.toString(money));
                 //startIntent.putExtra("Fore",Integer.toString(foreign));
                 if(position>=wktsel){
@@ -353,6 +357,7 @@ public class CreatingTeam2 extends AppCompatActivity {
                 startIntent.putExtra("Team","Any");
                 startIntent.putExtra("Team1",t1);
                 startIntent.putExtra("Team2",t2);
+                startIntent.putExtra("mid",mid);
                 //startIntent.putExtra("Money",Integer.toString(money));
                //startIntent.putExtra("Fore",Integer.toString(foreign));
                 if(position>=allsel) {
@@ -380,6 +385,7 @@ public class CreatingTeam2 extends AppCompatActivity {
                 startIntent.putExtra("Team","Any");
                 startIntent.putExtra("Team1",t1);
                 startIntent.putExtra("Team2",t2);
+                startIntent.putExtra("mid",mid);
                 //startIntent.putExtra("Money",Integer.toString(money));
                 //startIntent.putExtra("Fore",Integer.toString(foreign));
                 if(position>=bolsel){

@@ -64,6 +64,8 @@ public class CreatingTeam1 extends AppCompatActivity {
         final String userId=getIntent().getStringExtra("userId");
        final String Team1=getIntent().getStringExtra("Team1");
         final String Team2=getIntent().getStringExtra("Team2");
+        final String mid=getIntent().getStringExtra("mid");
+        Log.i("mid",mid);
         dref= FirebaseDatabase.getInstance().getReference();
         dref = dref.child("USERS").child(userId);
         mAuth = FirebaseAuth.getInstance();
@@ -147,6 +149,7 @@ public class CreatingTeam1 extends AppCompatActivity {
                 startIntent.putExtra("Team1",Team1);
 
                 startIntent.putExtra("Team2",Team2);
+                startIntent.putExtra("mid",mid);
 
 
                 //Log.d(TAG,"intent");

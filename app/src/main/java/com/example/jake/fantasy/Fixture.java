@@ -56,6 +56,8 @@ public class Fixture extends AppCompatActivity {
                     startIntent.putExtra("userId",userId);
                     startIntent.putExtra("Team1",data[0]);
                     startIntent.putExtra("Team2",data[1]);
+                    startIntent.putExtra("mid",Integer.toString(position));
+                    Log.i("mid",Integer.toString(position));
                     startActivity(startIntent);
 
                 }
