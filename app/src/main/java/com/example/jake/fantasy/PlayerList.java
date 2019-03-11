@@ -65,6 +65,7 @@ public class PlayerList extends AppCompatActivity {
         t1=getIntent().getStringExtra("Team1");
         t2=getIntent().getStringExtra("Team2");
         mid=getIntent().getStringExtra("mid");
+        Log.i("PL",mid);
 
 
         //String sortBy=getIntent().getStringExtra("SortBy");
