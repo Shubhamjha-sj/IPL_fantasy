@@ -42,6 +42,7 @@ public class CreatingTeam2 extends AppCompatActivity {
     String userId,teamName;
     Button submit;
     FirebaseAuth mAuth;
+    String t1,t2;
     public ProgressDialog mProgressDialog;
     ValueEventListener mListener;
     private static final String TAG = "playerlist";
@@ -61,6 +62,10 @@ public class CreatingTeam2 extends AppCompatActivity {
         foreign = 0;
         tmName = (TextView) findViewById(R.id.teamnn);
         userId=getIntent().getStringExtra("userId");
+        t1=getIntent().getStringExtra("Team1");
+        t2=getIntent().getStringExtra("Team2");
+
+
         showProgressDialog();
         bats = new ArrayList<>();
         bowls = new ArrayList<>();
@@ -77,6 +82,9 @@ public class CreatingTeam2 extends AppCompatActivity {
                    // Log.d("Click","Aisha pore");
                     Intent startIntent = new Intent(CreatingTeam2.this,TabbedActiviy.class);
                     startIntent.putExtra("userId",userId);
+                    startIntent.putExtra("Team1",t1);
+                    startIntent.putExtra("Team2",t2);
+
                     startIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(startIntent);
                     finish();
@@ -287,6 +295,9 @@ public class CreatingTeam2 extends AppCompatActivity {
                 startIntent.putExtra("MaxPrice","Any");
                 startIntent.putExtra("MinPrice","Any");
                 startIntent.putExtra("Team","Any");
+                startIntent.putExtra("Team1",t1);
+                startIntent.putExtra("Team2",t2);
+
                 //startIntent.putExtra("Money",Integer.toString(money));
                 //startIntent.putExtra("Fore",Integer.toString(foreign));
                 if(position>=batsel) {
@@ -313,6 +324,8 @@ public class CreatingTeam2 extends AppCompatActivity {
                 startIntent.putExtra("MaxPrice","Any");
                 startIntent.putExtra("MinPrice","Any");
                 startIntent.putExtra("Team","Any");
+                startIntent.putExtra("Team1",t1);
+                startIntent.putExtra("Team2",t2);
                 //startIntent.putExtra("Money",Integer.toString(money));
                 //startIntent.putExtra("Fore",Integer.toString(foreign));
                 if(position>=wktsel){
@@ -338,6 +351,8 @@ public class CreatingTeam2 extends AppCompatActivity {
                 startIntent.putExtra("MaxPrice","Any");
                 startIntent.putExtra("MinPrice","Any");
                 startIntent.putExtra("Team","Any");
+                startIntent.putExtra("Team1",t1);
+                startIntent.putExtra("Team2",t2);
                 //startIntent.putExtra("Money",Integer.toString(money));
                //startIntent.putExtra("Fore",Integer.toString(foreign));
                 if(position>=allsel) {
@@ -363,6 +378,8 @@ public class CreatingTeam2 extends AppCompatActivity {
                 startIntent.putExtra("MaxPrice","Any");
                 startIntent.putExtra("MinPrice","Any");
                 startIntent.putExtra("Team","Any");
+                startIntent.putExtra("Team1",t1);
+                startIntent.putExtra("Team2",t2);
                 //startIntent.putExtra("Money",Integer.toString(money));
                 //startIntent.putExtra("Fore",Integer.toString(foreign));
                 if(position>=bolsel){

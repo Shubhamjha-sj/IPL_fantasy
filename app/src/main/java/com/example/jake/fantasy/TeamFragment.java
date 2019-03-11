@@ -38,7 +38,7 @@ public class TeamFragment extends Fragment {
     TextView tmMotto,tmName,point,rank;
     ArrayList<Players> bats,bowls,alls,wkts;
     ListView batL,bolL,allL,wktL;
-    String userId,teamName,teamMotto;
+    String userId,teamName,teamMotto,t1,t2;
     Button edit,stats,popularPlayers;
 
     ValueEventListener mListener;
@@ -52,6 +52,9 @@ public class TeamFragment extends Fragment {
         foreign = 0;
 
         userId=getActivity().getIntent().getStringExtra("userId");
+        t1=getActivity().getIntent().getStringExtra("Team1");
+        t2=getActivity().getIntent().getStringExtra("Team2");
+
         //showProgressDialog();
         bats = new ArrayList<>();
         bowls = new ArrayList<>();
@@ -169,6 +172,8 @@ public class TeamFragment extends Fragment {
                 //signIn.setBackgroundColor(Color.GRAY);
                 Intent startIntent = new Intent(getActivity(),CreatingTeam1.class);
                 startIntent.putExtra("userId",userId);
+                startIntent.putExtra("Team1",t1);
+                startIntent.putExtra("Team2",t2);
 
                 startActivity(startIntent);
             }

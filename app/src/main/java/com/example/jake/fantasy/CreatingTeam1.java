@@ -62,6 +62,8 @@ public class CreatingTeam1 extends AppCompatActivity {
         bolSpin.setText("3");
         wktSpin.setText("1");
         final String userId=getIntent().getStringExtra("userId");
+       final String Team1=getIntent().getStringExtra("Team1");
+        final String Team2=getIntent().getStringExtra("Team2");
         dref= FirebaseDatabase.getInstance().getReference();
         dref = dref.child("USERS").child(userId);
         mAuth = FirebaseAuth.getInstance();
@@ -142,6 +144,10 @@ public class CreatingTeam1 extends AppCompatActivity {
                         }
                 Intent startIntent = new Intent(CreatingTeam1.this,CreatingTeam2.class);
                 startIntent.putExtra("userId",userId);
+                startIntent.putExtra("Team1",Team1);
+
+                startIntent.putExtra("Team2",Team2);
+
 
                 //Log.d(TAG,"intent");
                 startActivity(startIntent);

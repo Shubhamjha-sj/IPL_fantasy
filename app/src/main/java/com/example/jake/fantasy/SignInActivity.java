@@ -124,7 +124,8 @@ public class SignInActivity extends AppCompatActivity {
                                          */
                 }
                 else{
-                    Intent startIntent = new Intent(SignInActivity.this,CreatingTeam2.class);
+                    //Intent startIntent = new Intent(SignInActivity.this,CreatingTeam2.class);
+                    Intent startIntent = new Intent(SignInActivity.this,Fixture.class);
                     startIntent.putExtra("userId",userId);
                     startIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(startIntent);

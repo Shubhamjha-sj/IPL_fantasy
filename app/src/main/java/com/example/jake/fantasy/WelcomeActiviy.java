@@ -39,7 +39,8 @@ public class WelcomeActiviy extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //signIn.setBackgroundColor(Color.GRAY);
-                Intent startIntent = new Intent(WelcomeActiviy.this,CreatingTeam1.class);
+                //Intent startIntent = new Intent(WelcomeActiviy.this,CreatingTeam1.class);
+                Intent startIntent = new Intent(WelcomeActiviy.this,Fixture.class);
                 startIntent.putExtra("userId",userId);
                 startActivity(startIntent);
 

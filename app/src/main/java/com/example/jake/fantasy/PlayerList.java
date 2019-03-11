@@ -39,11 +39,12 @@ public class PlayerList extends AppCompatActivity {
     ListView listView;
     int userMon,fore;
     ArrayList<Integer> pids = new ArrayList<>();
-    String role,country,name,maxPrice,minPrice,userId,team,posi,one;
+    String role,country,name,maxPrice,minPrice,userId,team,posi,one,t1,t2;
     int tot,par;
     Button filter;
     public ProgressDialog mProgressDialog;
     ValueEventListener mListener;
+
     private static final String TAG = "filter";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,10 @@ public class PlayerList extends AppCompatActivity {
         team=getIntent().getStringExtra("Team");
         maxPrice=getIntent().getStringExtra("MaxPrice");
         minPrice=getIntent().getStringExtra("MinPrice");
+        t1=getIntent().getStringExtra("Team1");
+        t2=getIntent().getStringExtra("Team2");
+
+
         //String sortBy=getIntent().getStringExtra("SortBy");
         userId=getIntent().getStringExtra("UserId");
         Log.d(TAG,"vorse");
@@ -165,10 +170,12 @@ public class PlayerList extends AppCompatActivity {
         filtered = new ArrayList<>();
         for(int i=0;i<players.size();i++){
             Players p = players.get(i);
+            Log.i("team",p.getTeam());
+
             if((role.equals("Any") || role.equals(p.getRole()) ) && (name.equals("Any") || p.getName().toLowerCase().contains(name.toLowerCase()))&&
             (country.equals("Any") || p.getCountry().toLowerCase().contains(country.toLowerCase())) && (team.equals("Any") || p.getTeam().startsWith(team))
                     && ((maxPrice.equals("Any") || p.getPrice()<=Integer.parseInt(maxPrice))) &&
-                    ((minPrice.equals("Any") || p.getPrice()>=Integer.parseInt(minPrice))) && (!pids.contains(p.getId())))
+                    ((minPrice.equals("Any") || p.getPrice()>=Integer.parseInt(minPrice))) && (!pids.contains(p.getId()))&&((p.getTeam().equals(t1)||p.getTeam().equals(t2))))
 
                 filtered.add(p);
 
@@ -222,6 +229,8 @@ public class PlayerList extends AppCompatActivity {
                     }
                 }
                 Intent startIntent = new Intent(PlayerList.this,CreatingTeam2.class);
+                startIntent.putExtra("Team1",t1);
+                startIntent.putExtra("Team2",t2);
                 try {
                     Thread.sleep(1000);
                 } catch(Exception ex) {/* */}

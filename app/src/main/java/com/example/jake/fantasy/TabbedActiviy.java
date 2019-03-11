@@ -47,6 +47,7 @@ public class TabbedActiviy extends AppCompatActivity {
     private SectionPageAdapter mSectionPageAdapter;
     private Typeface tf1;
     FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
