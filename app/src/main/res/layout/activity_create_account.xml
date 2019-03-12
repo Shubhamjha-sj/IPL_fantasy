@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_1"
     tools:context="com.example.jake.fantasy.SignInActivity">
 
     <ImageView
@@ -16,19 +17,19 @@
         android:id="@+id/nameinp"
         android:layout_width="241dp"
         android:layout_height="65dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="170dp"
         android:layout_toRightOf="@+id/name"
-        android:layout_marginLeft="10dp"
         android:ems="10"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/emailinp"
         android:layout_width="241dp"
         android:layout_height="64dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="230dp"
         android:layout_toRightOf="@+id/name2"
-        android:layout_marginLeft="10dp"
         android:ems="10"
         android:inputType="textEmailAddress" />
 
@@ -37,34 +38,35 @@
         style="@android:style/Widget.EditText"
         android:layout_width="241dp"
         android:layout_height="64dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="290dp"
         android:layout_toRightOf="@+id/name"
-        android:layout_marginLeft="10dp"
         android:ems="10"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword" />
 
     <EditText
         android:id="@+id/conpassinp"
         style="@android:style/Widget.EditText"
         android:layout_width="241dp"
         android:layout_height="64dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="370dp"
         android:layout_toRightOf="@+id/name"
-        android:layout_marginLeft="10dp"
         android:ems="10"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/ca"
         android:layout_width="114dp"
         android:layout_height="55dp"
-        android:layout_marginTop="460dp"
         android:layout_marginLeft="145dp"
+        android:layout_marginTop="460dp"
+
         android:gravity="center"
-        android:background="@color/colorPrimaryDark"
         android:text="Create Account"
         android:textColor="#FFF"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:background="@drawable/gradient_2"/>
 
     <TextView
         android:id="@+id/name"
@@ -91,7 +93,7 @@
         android:layout_marginTop="240dp"
         android:text="Email         :"
         android:textColor="#000"
-        android:textSize="30dp"/>
+        android:textSize="30dp" />
 
     <TextView
         android:id="@+id/name3"
@@ -100,5 +102,5 @@
         android:layout_marginTop="180dp"
         android:text="Name        :"
         android:textColor="#000"
-        android:textSize="30dp"/>
+        android:textSize="30dp" />
 </RelativeLayout>

@@ -136,10 +136,12 @@ public class PlayerList extends AppCompatActivity {
                 userMon = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("Price").getValue().toString());
                 fore = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("Foreign").getValue().toString());
 
-                for(int i=0;i<=48;i++){
+                for(int i=0;i<=69;i++){
                      DataSnapshot ds = dataSnapshot.child("PLAYERS").child(Integer.toString(i));
                     Players player = new Players();
                    //player.setAge(Integer.parseInt((String) ds.child("Age").getValue()));
+                    String team =(String)ds.child("Team").getValue();
+
                     player.setAge(18);
                     player.setCountry((String)ds.child("Country").getValue());
                     //Log.d("cou", player.getCountry());
@@ -150,9 +152,9 @@ public class PlayerList extends AppCompatActivity {
                     player.setTotScore(0);
                     player.setPrice(((Long) ds.child("Price").getValue()).intValue());
                     player.setId(((Long) ds.child("PlayerId").getValue()).intValue());
-                    players.add(player);
+                    players.add(player);}
 
-                }
+
                 filterPlayers();
                 generateListView();
 

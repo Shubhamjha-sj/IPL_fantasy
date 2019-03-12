@@ -10,7 +10,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context="com.example.jake.fantasy.CreatingTeam1">
+        tools:context="com.example.jake.fantasy.CreatingTeam1"
+        android:background="@drawable/gradient_12">
 
 
         <TextView
@@ -86,23 +87,29 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="60dp" />
 
-        <Button
-            android:id="@+id/editTeam"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
 
-            android:layout_marginTop="80dp"
-            android:background="@color/colorPrimaryDark"
-            android:text="Edit Team"
-            android:textColor="#FFF"
-            android:textSize="18dp" />
 
         <Button
             android:id="@+id/popularPlayers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="updateFirebase"
-            android:text="Button" />
+            android:text="Submit And View Player Percentages"
+            android:background="@drawable/gradient_2"
+            android:textColor="#FFF"/>
+
+        <Button
+            android:id="@+id/editTeam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/popularPlayers"
+
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="Edit Team"
+            android:textColor="#FFF"
+            android:textSize="18dp" />
 
 
     </RelativeLayout>

@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class WelcomeActiviy extends AppCompatActivity {
 
 
-    TextView tv1,tv2,tv3,tv4;
+    TextView tv1,tv2,tv3;
     Typeface tf1;
     Button create;
     @Override
@@ -27,13 +27,13 @@ public class WelcomeActiviy extends AppCompatActivity {
         create = findViewById(R.id.button5);
         tv2 = findViewById(R.id.welL);
         tv3 = findViewById(R.id.welcome);
-        tv4 = findViewById(R.id.rules);
+
         tf1 = Typeface.createFromAsset(getAssets(),  "abc.ttf");
         tv1.setTypeface(tf1);
         tv2.setTypeface(tf1);
         tv3.setTypeface(tf1);
-        tv4.setTypeface(tf1);
-        tv4.setPaintFlags(tv4.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
+
         create.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -46,15 +46,7 @@ public class WelcomeActiviy extends AppCompatActivity {
 
             }
         });
-        tv4.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View view) {
-                //signIn.setBackgroundColor(Color.GRAY);
-                startActivity(new Intent(WelcomeActiviy.this, RulesActivity.class));
-
-            }
-        });
 
     }
 }

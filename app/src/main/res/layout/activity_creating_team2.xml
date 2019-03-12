@@ -3,13 +3,15 @@
     android:layout_height="fill_parent"
     android:scrollbars="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="@drawable/gradient_6">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context="com.example.jake.fantasy.CreatingTeam1">
+    tools:context="com.example.jake.fantasy.CreatingTeam1"
+    android:background="@drawable/gradient_10">
 
 
 
@@ -132,10 +134,10 @@
         android:layout_marginLeft="130dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="20dp"
-        android:background="@color/colorPrimaryDark"
         android:text="Submit"
         android:textColor="#FFF"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:background="@drawable/gradient_2"/>
 
 
 

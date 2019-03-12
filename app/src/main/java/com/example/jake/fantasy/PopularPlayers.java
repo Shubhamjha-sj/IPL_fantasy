@@ -96,9 +96,11 @@ public class PopularPlayers extends AppCompatActivity {
                 userMon = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("Price").getValue().toString());
                 fore = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("Foreign").getValue().toString());*/
 
-                for(int i=0;i<=48;i++){
+                for(int i=0;i<=69;i++){
                     DataSnapshot ds = dataSnapshot.child("PLAYERS").child(Integer.toString(i));
                     Players player = new Players();
+                    String team =(String)ds.child("Team").getValue();
+
                     //player.setAge(Integer.parseInt((String) ds.child("Age").getValue()));
                     player.setAge(18);
                     player.setCountry((String)ds.child("Country").getValue());
@@ -137,7 +139,7 @@ public class PopularPlayers extends AppCompatActivity {
             Players p = players.get(i);
             Log.i("team",p.getTeam());
 
-            if(((p.getTeam().equals(t1)||p.getTeam().equals(t2))))
+           if(((p.getTeam().equals(t1)||p.getTeam().equals(t2))))
 
                 filtered.add(p);
 
@@ -195,7 +197,7 @@ public class PopularPlayers extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                    prices.setText(String.format("%.2f",((Long)dataSnapshot.child("PLAYERS").child(Integer.toString(i)).child("count").getValue()*1.0/(Long) dataSnapshot.child("MATCHES").child(mid).child("contestants").getValue()*1.0)*100));
+                    prices.setText(String.format("%.2f",((Long)dataSnapshot.child("PLAYERS").child(Integer.toString(filtered.get(i).getId())).child("count").getValue()*1.0/(Long) dataSnapshot.child("MATCHES").child(mid).child("contestants").getValue()*1.0)*100));
                 }
 
                 @Override
