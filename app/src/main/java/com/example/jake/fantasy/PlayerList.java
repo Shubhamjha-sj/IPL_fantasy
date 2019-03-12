@@ -91,6 +91,9 @@ public class PlayerList extends AppCompatActivity {
                 startIntent.putExtra("One",one);
                 startIntent.putExtra("Position",posi);
                 startIntent.putExtra("Role",role);
+                startIntent.putExtra("Team1",t1);
+                startIntent.putExtra("Team2",t2);
+                startIntent.putExtra("mid",mid);
                 Log.d(TAG,"puts");
                 startActivity(startIntent);
                 Log.d(TAG,"puts");

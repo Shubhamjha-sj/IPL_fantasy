@@ -22,7 +22,7 @@ public class FilterActivity extends AppCompatActivity {
     String []MinPrices = {"15","14","13","12","11","10","9","8","7","6","5"};
     ArrayAdapter<String> arrayCoun, arrayTeam,arrayMax,arrayMin;
     MaterialBetterSpinner coutSpin, teamSpin, maxSpin,minSpin;
-    String role,userId,posi,one;
+    String role,userId,posi,one,t1,t2,mid;
     Button filter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,9 @@ public class FilterActivity extends AppCompatActivity {
         userId=getIntent().getStringExtra("UserId");
         posi=getIntent().getStringExtra("Position");
         one=getIntent().getStringExtra("One");
+        t1=getIntent().getStringExtra("Team1");
+        t2=getIntent().getStringExtra("Team2");
+        mid=getIntent().getStringExtra("mid");
         name = findViewById(R.id.nameFilterInp);
         coutSpin = findViewById(R.id.spinnerCountry);
         teamSpin = findViewById(R.id.spinnerTeam);
@@ -67,6 +70,9 @@ public class FilterActivity extends AppCompatActivity {
                 startIntent.putExtra("Team",teamSpin.getText().toString());
                 startIntent.putExtra("MaxPrice",maxSpin.getText().toString());
                 startIntent.putExtra("MinPrice",minSpin.getText().toString());
+                startIntent.putExtra("Team1",t1);
+                startIntent.putExtra("Team2",t2);
+                startIntent.putExtra("mid",mid);
                 startIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
 

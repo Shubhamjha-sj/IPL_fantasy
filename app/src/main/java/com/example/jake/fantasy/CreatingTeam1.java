@@ -24,7 +24,7 @@ import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 public class CreatingTeam1 extends AppCompatActivity {
 
 
-    EditText tname,tmotto;
+
     String []batOpt = {"3","4","5"};
     String []wktOpt = {"1"};
     String []allOpt = {"2","3","4"};
@@ -43,8 +43,7 @@ public class CreatingTeam1 extends AppCompatActivity {
         setContentView(R.layout.activity_creating_team1);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Creating Team");
-        tname = findViewById(R.id.teamName);
-        tmotto = findViewById(R.id.teamMotto);
+
         batSpin = findViewById(R.id.spinnerBat);
         bolSpin = findViewById(R.id.spinnerBol);
         allSpin = findViewById(R.id.spinnerAll);
@@ -76,8 +75,6 @@ public class CreatingTeam1 extends AppCompatActivity {
                 Log.d("slow","ashche5");
                 total = Integer.parseInt(dataSnapshot.child("TotalSelected").getValue().toString());
                 if(total == 11) {
-                    tname.setText(dataSnapshot.child("TeamName").getValue().toString());
-                    tmotto.setText(dataSnapshot.child("TeamMotto").getValue().toString());
                     batsel = Integer.parseInt(dataSnapshot.child("BatsmenSel").getValue().toString());
                     bolsel = Integer.parseInt(dataSnapshot.child("BowlerSel").getValue().toString());
                     wktsel = Integer.parseInt(dataSnapshot.child("WktKeeperSel").getValue().toString());
@@ -98,12 +95,8 @@ public class CreatingTeam1 extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                if (!validateForm()) {
 
-                    return;
-                }
-                final String name = tname.getText().toString();
-                final String motto = tmotto.getText().toString();
+
                 final int bat = Integer.parseInt(batSpin.getText().toString());
                 final int all = Integer.parseInt(allSpin.getText().toString());
                 final int wkt = Integer.parseInt(wktSpin.getText().toString());
@@ -123,9 +116,9 @@ public class CreatingTeam1 extends AppCompatActivity {
                             dref.child("Bowler").setValue(Integer.toString(bol));
                             dref.child("Allrounder").setValue(Integer.toString(all));
                             dref.child("WktKeeper").setValue(Integer.toString(wkt));
-                            dref.child("TeamName").setValue(name);
+                            dref.child("TeamName").setValue("");
                             dref.child("Rank").setValue(0);
-                            dref.child("TeamMotto").setValue(motto);
+                            dref.child("TeamMotto").setValue("");
                             dref.child("BatsmenSel").setValue(Integer.toString(0));
                             dref.child("BowlerSel").setValue(Integer.toString(0));
                             dref.child("AllrounderSel").setValue(Integer.toString(0));
@@ -137,8 +130,8 @@ public class CreatingTeam1 extends AppCompatActivity {
                             dref.child("Bowler").setValue(Integer.toString(bol));
                             dref.child("Allrounder").setValue(Integer.toString(all));
                             dref.child("WktKeeper").setValue(Integer.toString(wkt));
-                            dref.child("TeamName").setValue(name);
-                            dref.child("TeamMotto").setValue(motto);
+                            dref.child("TeamName").setValue("");
+                            dref.child("TeamMotto").setValue("");
                             dref.child("BatsmenSel").setValue(Integer.toString(Math.min(batsel,bat)));
                             dref.child("BowlerSel").setValue(Integer.toString(Math.min(bolsel,bol)));
                             dref.child("AllrounderSel").setValue(Integer.toString(Math.min(allsel,all)));
@@ -165,27 +158,7 @@ public class CreatingTeam1 extends AppCompatActivity {
         });
     }
 
-    private boolean validateForm() {
-        boolean valid = true;
-        String motto = tmotto.getText().toString();
-        if (TextUtils.isEmpty(motto)) {
-            tmotto.setError("Required.");
-            valid = false;
-        }
-        else {
-            tmotto.setError(null);
-        }
 
-        String name = tname.getText().toString();
-        if (TextUtils.isEmpty(name)) {
-            tname.setError("Required.");
-            valid = false;
-        }
-        else {
-            tname.setError(null);
-        }
-        return valid;
-    }
     @Override
     protected void onStop() {
         if (mListener != null && dref!=null) {

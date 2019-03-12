@@ -222,7 +222,7 @@ public class TeamFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //signIn.setBackgroundColor(Color.GRAY);
-                Intent startIntent = new Intent(getActivity(),CreatingTeam1.class);
+                Intent startIntent = new Intent(getActivity(),Fixture.class);
                 startIntent.putExtra("userId",userId);
                 startIntent.putExtra("Team1",t1);
                 startIntent.putExtra("Team2",t2);

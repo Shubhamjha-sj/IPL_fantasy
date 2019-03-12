@@ -35,7 +35,7 @@ public class PopularPlayers extends AppCompatActivity {
     ArrayList<Integer> pids = new ArrayList<>();
     String role,country,name,maxPrice,minPrice,userId,team,posi,one,t1,t2,mid;
     int tot,par;
-    Button filter;
+    Button back;
     public ProgressDialog mProgressDialog;
     ValueEventListener mListener;
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,19 @@ public class PopularPlayers extends AppCompatActivity {
         t2=getIntent().getStringExtra("Team2");
         mid=getIntent().getStringExtra("mid");
         userId=getIntent().getStringExtra("userId");
-        Log.i("Team2",t2);
+        back=(Button)findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startIntent = new Intent(PopularPlayers.this,TabbedActiviy.class);
+                startIntent.putExtra("Team1",t1);
+                startIntent.putExtra("Team2",t2);
+                startIntent.putExtra("mid",mid);
+                startIntent.putExtra("userId",userId);
+                startActivity(startIntent);
+            }
+        });
+
         listView = findViewById(R.id.playerList1);
         showProgressDialog();
         populatePlayers();

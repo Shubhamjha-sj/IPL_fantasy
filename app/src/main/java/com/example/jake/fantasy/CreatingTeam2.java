@@ -36,7 +36,7 @@ public class CreatingTeam2 extends AppCompatActivity {
 
     int batno,bolno,allno,batsel,bolsel,wktsel,allsel,money,total,foreign = 0,price=0,k=0;
     DatabaseReference dref;
-    TextView plse,mone,tmName;
+    TextView plse,mone;
     ArrayList<Players> bats,bowls,alls,wkts;
     ListView batL,bolL,allL,wktL;
     String userId,teamName,mid;
@@ -60,7 +60,6 @@ public class CreatingTeam2 extends AppCompatActivity {
         wktL = findViewById(R.id.wktList);
         total = 0;
         foreign = 0;
-        tmName = (TextView) findViewById(R.id.teamnn);
         userId=getIntent().getStringExtra("userId");
         t1=getIntent().getStringExtra("Team1");
         t2=getIntent().getStringExtra("Team2");
@@ -144,7 +143,7 @@ public class CreatingTeam2 extends AppCompatActivity {
                 money = Integer.parseInt(dataSnapshot.child("Balance").getValue().toString());
                 teamName = (String)dataSnapshot.child("TeamName").getValue();
                 Log.d(TAG,teamName);
-                tmName.setText(teamName);
+
 
                 Log.d(TAG,"hoise");
                 batno = Integer.parseInt(dataSnapshot.child("Batsmen").getValue().toString());
