@@ -196,7 +196,6 @@ public class PlayerList extends AppCompatActivity {
         Log.d(TAG, "geege");
         listView.setAdapter(custopmAdapter);
         hideProgressDialog();
-
         dref = FirebaseDatabase.getInstance().getReference();
         dref = dref.child("USERS").child(userId);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
