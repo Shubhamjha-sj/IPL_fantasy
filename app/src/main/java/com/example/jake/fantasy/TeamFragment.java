@@ -40,7 +40,7 @@ public class TeamFragment extends Fragment {
     ArrayList<Players> bats,bowls,alls,wkts;
     ListView batL,bolL,allL,wktL;
     String userId,teamName,teamMotto,t1,t2,mid;
-    Button edit,stats,popularPlayers;
+    Button edit,stats,popularPlayers,submit;
 
     ValueEventListener mListener;
     public ProgressDialog mProgressDialog;
@@ -70,6 +70,7 @@ public class TeamFragment extends Fragment {
         allL = view.findViewById(R.id.allList1);
         wktL = view.findViewById(R.id.wktList1);
         popularPlayers=view.findViewById(R.id.popularPlayers);
+        submit=view.findViewById(R.id.button4);
         dref = FirebaseDatabase.getInstance().getReference();
         dref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -84,9 +85,11 @@ public class TeamFragment extends Fragment {
             }
         });
 
-        popularPlayers.setOnClickListener(new View.OnClickListener() {
+        submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showProgressDialog();
+
                 if(hasSubmmited==0){
                ddref=FirebaseDatabase.getInstance().getReference();
                cref=FirebaseDatabase.getInstance().getReference();
@@ -95,6 +98,7 @@ public class TeamFragment extends Fragment {
                         public void onDataChange(@NonNull DataSnapshot data) {
                             DataSnapshot dataSnapshot = data.child("MATCHES").child(mid);
                             cref.child("MATCHES").child(mid).child("contestants").setValue((Long)dataSnapshot.child("contestants").getValue()+1);
+
                         }
 
                         @Override
@@ -102,7 +106,7 @@ public class TeamFragment extends Fragment {
 
                         }
                     });
-                    for(int i=0;i<batno;i++){
+
                         for(Players player:bats){
                            final int pid=player.getId();
 
@@ -123,8 +127,8 @@ public class TeamFragment extends Fragment {
 
                         }
 
-                    }
-                for(int i=0;i<bolno;i++){
+
+
                     for(Players player:bowls){
                         final int pid=player.getId();
 
@@ -145,8 +149,8 @@ public class TeamFragment extends Fragment {
 
                     }
 
-                }
-                for(int i=0;i<1;i++){
+
+
                     for(Players player:wkts){
                         final int pid=player.getId();
 
@@ -167,8 +171,8 @@ public class TeamFragment extends Fragment {
 
                     }
 
-                }
-                for(int i=0;i<allno;i++){
+
+
                     for(Players player:alls){
                         final int pid=player.getId();
 
@@ -189,29 +193,28 @@ public class TeamFragment extends Fragment {
 
                     }
 
-                }
+
                 hasSubmmited=Long.valueOf(1);
-                    Intent startIntent = new Intent(getActivity(),PopularPlayers.class);
-                    startIntent.putExtra("userId",userId);
-                    startIntent.putExtra("Team1",t1);
-                    startIntent.putExtra("Team2",t2);
-                    startIntent.putExtra("mid",mid);
-                    startActivity(startIntent);
+                   // mProgressDialog.dismiss();
+
 
 
 
             }
-            else{
-                    Log.i("Msg","Already Submitted");
-                    Intent startIntent = new Intent(getActivity(),PopularPlayers.class);
-                    startIntent.putExtra("userId",userId);
-                    startIntent.putExtra("Team1",t1);
-                    startIntent.putExtra("Team2",t2);
-                    startIntent.putExtra("mid",mid);
-                    startActivity(startIntent);
+            hideProgressDialog();
 
-                }
 
+            }
+        });
+        popularPlayers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startIntent = new Intent(getActivity(),PopularPlayers.class);
+                startIntent.putExtra("userId",userId);
+                startIntent.putExtra("Team1",t1);
+                startIntent.putExtra("Team2",t2);
+                startIntent.putExtra("mid",mid);
+                startActivity(startIntent);
             }
         });
 
@@ -232,7 +235,7 @@ public class TeamFragment extends Fragment {
         });
 
         //submit = findViewById(R.id.submit);
-        showProgressDialog();
+       // showProgressDialog();
         getData();
 
         return view;
@@ -439,7 +442,7 @@ public class TeamFragment extends Fragment {
             }
         });*/
 
-        hideProgressDialog();
+       // hideProgressDialog();
     }
 
 
@@ -507,7 +510,7 @@ public class TeamFragment extends Fragment {
 
         if (mProgressDialog == null) {
 
-            mProgressDialog = new ProgressDialog(getActivity());
+            mProgressDialog = new ProgressDialog(getContext());
 
             mProgressDialog.setMessage("Generating Player List");
 

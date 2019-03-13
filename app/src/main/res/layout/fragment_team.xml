@@ -16,7 +16,7 @@
 
         <TextView
             android:id="@+id/bats"
-            android:layout_width="200dp"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="120dp"
             android:layout_weight="1"
@@ -88,15 +88,17 @@
             android:layout_marginBottom="60dp" />
 
 
-
         <Button
             android:id="@+id/popularPlayers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="updateFirebase"
-            android:text="Submit And View Player Percentages"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="66dp"
             android:background="@drawable/gradient_2"
-            android:textColor="#FFF"/>
+            android:onClick="updateFirebase"
+            android:text="View %age"
+            android:textColor="#FFF" />
 
         <Button
             android:id="@+id/editTeam"
@@ -105,11 +107,27 @@
             android:layout_below="@+id/popularPlayers"
 
             android:layout_alignParentStart="true"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="267dp"
+            android:layout_marginTop="-108dp"
+            android:background="@drawable/gradient_2"
+            android:padding="3dp"
             android:text="Edit Team"
             android:textColor="#FFF"
-            android:textSize="18dp"
-            android:background="@drawable/gradient_2"/>
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/button4"
+            android:background="@drawable/gradient_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="144dp"
+            android:layout_marginRight="144dp"
+            android:textColor="#FFF"
+            android:text="Submit Your Players" />
 
 
     </RelativeLayout>

@@ -96,10 +96,12 @@ public class PopularPlayers extends AppCompatActivity {
                 userMon = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("Price").getValue().toString());
                 fore = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("Foreign").getValue().toString());*/
 
+
                 for(int i=0;i<=141;i++){
                     DataSnapshot ds = dataSnapshot.child("PLAYERS").child(Integer.toString(i));
                     Players player = new Players();
                     String team =(String)ds.child("Team").getValue();
+                    if((team.equals(t1)||team.equals(t2))){
 
                     //player.setAge(Integer.parseInt((String) ds.child("Age").getValue()));
                     player.setAge(18);
@@ -112,7 +114,7 @@ public class PopularPlayers extends AppCompatActivity {
                     player.setTotScore(0);
                     player.setPrice(((Long) ds.child("Price").getValue()).intValue());
                     player.setId(((Long) ds.child("PlayerId").getValue()).intValue());
-                    players.add(player);
+                    players.add(player);}
 
                 }
                 filterPlayers();
@@ -151,6 +153,9 @@ public class PopularPlayers extends AppCompatActivity {
         CustopmAdapter custopmAdapter = new CustopmAdapter();
 
         listView.setAdapter(custopmAdapter);
+        try {
+            Thread.sleep(1000);
+        } catch(Exception ex) {/* */}
         hideProgressDialog();
 
        /* try {
