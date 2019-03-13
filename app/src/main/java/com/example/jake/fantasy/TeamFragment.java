@@ -88,7 +88,7 @@ public class TeamFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showProgressDialog();
+
 
                 if(hasSubmmited==0){
                ddref=FirebaseDatabase.getInstance().getReference();
@@ -196,12 +196,13 @@ public class TeamFragment extends Fragment {
 
                 hasSubmmited=Long.valueOf(1);
                    // mProgressDialog.dismiss();
+                    ddref.child("USERS").child(userId).child("HasSubmitted").setValue(hasSubmmited);
 
 
 
 
             }
-            hideProgressDialog();
+
 
 
             }
