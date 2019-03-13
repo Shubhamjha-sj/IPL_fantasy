@@ -510,7 +510,7 @@ public class TeamFragment extends Fragment {
 
         if (mProgressDialog == null) {
 
-            mProgressDialog = new ProgressDialog(getContext());
+            mProgressDialog = new ProgressDialog(getActivity());
 
             mProgressDialog.setMessage("Generating Player List");
 
