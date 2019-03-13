@@ -1,5 +1,6 @@
 package com.example.jake.fantasy;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.design.widget.TabLayout;
@@ -47,6 +48,7 @@ public class TabbedActiviy extends AppCompatActivity {
     private SectionPageAdapter mSectionPageAdapter;
     private Typeface tf1;
     FirebaseAuth mAuth;
+    public ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

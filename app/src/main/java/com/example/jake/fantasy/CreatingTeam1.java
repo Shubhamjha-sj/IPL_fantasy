@@ -27,8 +27,8 @@ public class CreatingTeam1 extends AppCompatActivity {
 
     String []batOpt = {"3","4","5"};
     String []wktOpt = {"1"};
-    String []allOpt = {"2","3","4"};
-    String []bolOpt = {"2","3","4","5"};
+    String []allOpt = {"2","3","1"};
+    String []bolOpt = {"3","4","5"};
     FirebaseAuth mAuth;
     DatabaseReference dref;
     ValueEventListener mListener;

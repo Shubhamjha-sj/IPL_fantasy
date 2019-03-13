@@ -211,8 +211,8 @@ public class PlayerList extends AppCompatActivity {
                 }
 
                 if(!pp.getCountry().startsWith("India")){
-                    if(fore==5) {
-                        Toast.makeText(PlayerList.this, "Maximum 5 foreign players allowed",
+                    if(fore==4) {
+                        Toast.makeText(PlayerList.this, "Maximum 4 foreign players allowed",
                                 Toast.LENGTH_SHORT).show();
                         return;
                     }

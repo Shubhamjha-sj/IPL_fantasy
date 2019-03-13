@@ -150,12 +150,14 @@ public class PopularPlayers extends AppCompatActivity {
 
         CustopmAdapter custopmAdapter = new CustopmAdapter();
 
-
         listView.setAdapter(custopmAdapter);
         hideProgressDialog();
 
-        dref = FirebaseDatabase.getInstance().getReference();
-        dref = dref.child("USERS").child(userId);
+       /* try {
+            Thread.sleep(1000);
+        } catch(Exception ex) {}
+
+        finish();*/
 
 
     }
