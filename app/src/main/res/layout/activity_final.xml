@@ -29,7 +29,7 @@
             android:layout_marginLeft="230dp"
             android:textColor="#FFF"
             android:text="Your Team"
-            android:background="@color/colorPrimaryDark"
+            android:background="@drawable/gradient_6"
             android:textSize="18dp"/>
 
 
