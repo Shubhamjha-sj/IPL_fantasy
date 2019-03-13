@@ -96,7 +96,7 @@ public class PopularPlayers extends AppCompatActivity {
                 userMon = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("Price").getValue().toString());
                 fore = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("Foreign").getValue().toString());*/
 
-                for(int i=0;i<=69;i++){
+                for(int i=0;i<=141;i++){
                     DataSnapshot ds = dataSnapshot.child("PLAYERS").child(Integer.toString(i));
                     Players player = new Players();
                     String team =(String)ds.child("Team").getValue();

@@ -51,7 +51,7 @@ public class Fixture extends AppCompatActivity {
                 Log.i("Team1",data[0]);
                 Log.i("Team2",data[1]);
                 Log.i("Valid",Integer.toString(valid));
-                if(valid==0){
+                if(valid!=0){
                     Intent startIntent = new Intent(Fixture.this,CreatingTeam1.class);
                     startIntent.putExtra("userId",userId);
                     startIntent.putExtra("Team1",data[0]);
