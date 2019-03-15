@@ -2,50 +2,27 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.jake.fantasy.CreatingTeam1">
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    tools:context="com.example.jake.fantasy.CreatingTeam1"
+    android:background="@drawable/gradient_6"
+    >
 
-    <TextView
-        android:id="@+id/teamname"
-        android:layout_width="176dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_weight="1"
-        android:text="Team Name:"
-        android:textColor="#000"
-        android:textSize="30dp" />
-
-    <EditText
-        android:id="@+id/teamName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:hint="Team Name" />
-
-    <TextView
-        android:id="@+id/teammotto"
-        android:layout_width="176dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:layout_weight="1"
-        android:text="Team Motto:"
-        android:textColor="#000"
-        android:textSize="30dp" />
-
-    <EditText
-        android:id="@+id/teamMotto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
-        android:hint="Team Motto" />
 
     <TextView
         android:id="@+id/teamform"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
-        android:layout_weight="1"
+
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+
+        android:layout_centerInParent="true"
+        android:layout_marginStart="103dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="91dp"
         android:text="Team Formation:"
         android:textColor="#000"
         android:textSize="30dp" />
@@ -54,8 +31,13 @@
         android:id="@+id/batsmen"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="280dp"
-        android:layout_weight="1"
+        android:layout_below="@+id/teamform"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="false"
+
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="36dp"
         android:text="Batsmen:"
         android:textColor="#000"
         android:textSize="25dp" />
@@ -64,80 +46,87 @@
         android:id="@+id/allrounder"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="330dp"
-        android:layout_weight="1"
+        android:layout_below="@+id/batsmen"
+        android:layout_marginTop="36dp"
         android:text="All Rounder:"
         android:textColor="#000"
-        android:textSize="25dp" />
-
+        android:textSize="25dp"
+        android:layout_marginLeft="26dp" />
     <TextView
         android:id="@+id/wktkeeper"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="380dp"
-        android:layout_weight="1"
+        android:layout_below="@+id/allrounder"
         android:text="Wicket Keeper:"
+        android:layout_marginTop="36dp"
         android:textColor="#000"
-        android:textSize="25dp" />
-
+        android:textSize="25dp"
+        android:layout_marginLeft="26dp"/>
     <TextView
         android:id="@+id/bowler"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="430dp"
-        android:layout_weight="1"
+        android:layout_below="@+id/wktkeeper"
         android:text="Bowler:"
+        android:layout_marginTop="36dp"
         android:textColor="#000"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:layout_marginLeft="26dp" />
 
     <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
         android:id="@+id/spinnerBat"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="220dp"
-         android:layout_marginTop="270dp"
+        android:layout_below="@+id/teamform"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="35dp"
+        android:layout_toRightOf="@id/batsmen"
         android:hint="4"
         android:textColorHint="#000"
         android:textSize="20dp" />
-
     <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
         android:id="@+id/spinnerAll"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="220dp"
-        android:layout_marginTop="320dp"
+        android:layout_below="@+id/spinnerBat"
+        android:layout_toRightOf="@id/allrounder"
         android:hint="3"
         android:textColorHint="#000"
-        android:textSize="20dp" />
-
+        android:textSize="20dp"
+        android:layout_marginTop="30dp" />
     <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
         android:id="@+id/spinnerWkt"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="220dp"
-        android:layout_marginTop="370dp"
+        android:layout_below="@+id/spinnerAll"
+        android:layout_toRightOf="@id/wktkeeper"
         android:hint="1"
         android:textColorHint="#000"
-        android:textSize="20dp" />
-
+        android:textSize="20dp"
+        android:layout_marginTop="20dp" />
     <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
         android:id="@+id/spinnerBol"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="220dp"
-        android:layout_marginTop="420dp"
+        android:layout_below="@+id/spinnerWkt"
+        android:layout_toRightOf="@id/allrounder"
         android:hint="3"
         android:textColorHint="#000"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:layout_marginTop="20dp" />
+
     <Button
         android:id="@+id/selectSquad"
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="500dp"
-        android:text="Move to Select Squad"
-        android:textSize="20dp"
+        android:layout_marginTop="450dp"
+        android:background="@drawable/gradient_2"
+        android:padding="20dp"
+        android:scrollHorizontally="false"
+        android:text="Select Squad"
         android:textColor="#FFF"
-        android:background="@color/colorPrimaryDark"/>
+        android:textSize="20dp" />
 
 </RelativeLayout>

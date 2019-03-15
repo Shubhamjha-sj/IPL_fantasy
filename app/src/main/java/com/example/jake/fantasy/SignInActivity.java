@@ -112,7 +112,7 @@ public class SignInActivity extends AppCompatActivity {
                 total = Integer.parseInt(dataSnapshot.getValue().toString());
 
                 Log.d("slow","ashche6");
-                if (total==11){
+                /*if (total==11){
                     Intent startIntent = new Intent(SignInActivity.this,TabbedActiviy.class);
                     startIntent.putExtra("userId",userId);
                     Log.d("slow","ashche7");
@@ -121,15 +121,16 @@ public class SignInActivity extends AppCompatActivity {
                     finish();
                                         /*---you might want to call finish() method here but never do that
                                         ----call finish() method from outside the listener---
-                                         */
+
                 }
-                else{
-                    Intent startIntent = new Intent(SignInActivity.this,CreatingTeam2.class);
+               else{*/
+                    //Intent startIntent = new Intent(SignInActivity.this,CreatingTeam2.class);
+                    Intent startIntent = new Intent(SignInActivity.this,Fixture.class);
                     startIntent.putExtra("userId",userId);
                     startIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(startIntent);
                     finish();
-                }
+               // }
 
             }
 

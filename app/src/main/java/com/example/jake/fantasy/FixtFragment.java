@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -30,6 +31,7 @@ public class FixtFragment extends Fragment {
     ArrayList <String> teamsL,matchnoL,venueL,timeL;
     ListView listView;
     ValueEventListener mListener;
+    Button button;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class FixtFragment extends Fragment {
         venueL = new ArrayList<>();
         timeL = new ArrayList<>();
         listView = view.findViewById(R.id.matchList);
+
         populateMatches();
 
         return view;
@@ -110,12 +113,10 @@ public class FixtFragment extends Fragment {
             view = getLayoutInflater().inflate(R.layout.fixture_items,null);
             TextView teams = view.findViewById(R.id.teams);
             TextView matchno= view.findViewById(R.id.matchNo);
-            TextView venue = view.findViewById(R.id.venue);
-            TextView time = view.findViewById(R.id.time);
+
 
             teams.setText(teamsL.get(i));
-            time.setText(timeL.get(i));
-            venue.setText("Venue: "+venueL.get(i));
+
             matchno.setText(matchnoL.get(i));
 
             return view;

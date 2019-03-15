@@ -39,11 +39,12 @@ public class PlayerList extends AppCompatActivity {
     ListView listView;
     int userMon,fore;
     ArrayList<Integer> pids = new ArrayList<>();
-    String role,country,name,maxPrice,minPrice,userId,team,posi,one;
+    String role,country,name,maxPrice,minPrice,userId,team,posi,one,t1,t2,mid;
     int tot,par;
     Button filter;
     public ProgressDialog mProgressDialog;
     ValueEventListener mListener;
+
     private static final String TAG = "filter";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,12 @@ public class PlayerList extends AppCompatActivity {
         team=getIntent().getStringExtra("Team");
         maxPrice=getIntent().getStringExtra("MaxPrice");
         minPrice=getIntent().getStringExtra("MinPrice");
+        t1=getIntent().getStringExtra("Team1");
+        t2=getIntent().getStringExtra("Team2");
+        mid=getIntent().getStringExtra("mid");
+        Log.i("PL",mid);
+
+
         //String sortBy=getIntent().getStringExtra("SortBy");
         userId=getIntent().getStringExtra("UserId");
         Log.d(TAG,"vorse");
@@ -84,6 +91,9 @@ public class PlayerList extends AppCompatActivity {
                 startIntent.putExtra("One",one);
                 startIntent.putExtra("Position",posi);
                 startIntent.putExtra("Role",role);
+                startIntent.putExtra("Team1",t1);
+                startIntent.putExtra("Team2",t2);
+                startIntent.putExtra("mid",mid);
                 Log.d(TAG,"puts");
                 startActivity(startIntent);
                 Log.d(TAG,"puts");
@@ -126,10 +136,12 @@ public class PlayerList extends AppCompatActivity {
                 userMon = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("Price").getValue().toString());
                 fore = Integer.parseInt( dataSnapshot.child("USERS").child(userId).child("Foreign").getValue().toString());
 
-                for(int i=0;i<=24;i++){
+                for(int i=0;i<=141;i++){
                      DataSnapshot ds = dataSnapshot.child("PLAYERS").child(Integer.toString(i));
                     Players player = new Players();
                    //player.setAge(Integer.parseInt((String) ds.child("Age").getValue()));
+                    String team =(String)ds.child("Team").getValue();
+
                     player.setAge(18);
                     player.setCountry((String)ds.child("Country").getValue());
                     //Log.d("cou", player.getCountry());
@@ -140,9 +152,9 @@ public class PlayerList extends AppCompatActivity {
                     player.setTotScore(0);
                     player.setPrice(((Long) ds.child("Price").getValue()).intValue());
                     player.setId(((Long) ds.child("PlayerId").getValue()).intValue());
-                    players.add(player);
+                    players.add(player);}
 
-                }
+
                 filterPlayers();
                 generateListView();
 
@@ -165,10 +177,12 @@ public class PlayerList extends AppCompatActivity {
         filtered = new ArrayList<>();
         for(int i=0;i<players.size();i++){
             Players p = players.get(i);
+            Log.i("team",p.getTeam());
+
             if((role.equals("Any") || role.equals(p.getRole()) ) && (name.equals("Any") || p.getName().toLowerCase().contains(name.toLowerCase()))&&
             (country.equals("Any") || p.getCountry().toLowerCase().contains(country.toLowerCase())) && (team.equals("Any") || p.getTeam().startsWith(team))
                     && ((maxPrice.equals("Any") || p.getPrice()<=Integer.parseInt(maxPrice))) &&
-                    ((minPrice.equals("Any") || p.getPrice()>=Integer.parseInt(minPrice))) && (!pids.contains(p.getId())))
+                    ((minPrice.equals("Any") || p.getPrice()>=Integer.parseInt(minPrice))) && (!pids.contains(p.getId()))&&((p.getTeam().equals(t1)||p.getTeam().equals(t2))))
 
                 filtered.add(p);
 
@@ -182,7 +196,6 @@ public class PlayerList extends AppCompatActivity {
         Log.d(TAG, "geege");
         listView.setAdapter(custopmAdapter);
         hideProgressDialog();
-
         dref = FirebaseDatabase.getInstance().getReference();
         dref = dref.child("USERS").child(userId);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -197,9 +210,9 @@ public class PlayerList extends AppCompatActivity {
                     return;
                 }
 
-                if(!pp.getCountry().startsWith("Bangla")){
-                    if(fore==5) {
-                        Toast.makeText(PlayerList.this, "Maximum 5 foreign players allowed",
+                if(!pp.getCountry().startsWith("India")){
+                    if(fore==4) {
+                        Toast.makeText(PlayerList.this, "Maximum 4 foreign players allowed",
                                 Toast.LENGTH_SHORT).show();
                         return;
                     }
@@ -222,6 +235,9 @@ public class PlayerList extends AppCompatActivity {
                     }
                 }
                 Intent startIntent = new Intent(PlayerList.this,CreatingTeam2.class);
+                startIntent.putExtra("Team1",t1);
+                startIntent.putExtra("Team2",t2);
+                startIntent.putExtra("mid",mid);
                 try {
                     Thread.sleep(1000);
                 } catch(Exception ex) {/* */}

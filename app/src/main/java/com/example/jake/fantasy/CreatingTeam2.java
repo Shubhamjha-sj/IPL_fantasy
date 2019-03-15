@@ -36,12 +36,13 @@ public class CreatingTeam2 extends AppCompatActivity {
 
     int batno,bolno,allno,batsel,bolsel,wktsel,allsel,money,total,foreign = 0,price=0,k=0;
     DatabaseReference dref;
-    TextView plse,mone,tmName;
+    TextView plse,mone;
     ArrayList<Players> bats,bowls,alls,wkts;
     ListView batL,bolL,allL,wktL;
-    String userId,teamName;
+    String userId,teamName,mid;
     Button submit;
     FirebaseAuth mAuth;
+    String t1,t2;
     public ProgressDialog mProgressDialog;
     ValueEventListener mListener;
     private static final String TAG = "playerlist";
@@ -59,8 +60,13 @@ public class CreatingTeam2 extends AppCompatActivity {
         wktL = findViewById(R.id.wktList);
         total = 0;
         foreign = 0;
-        tmName = (TextView) findViewById(R.id.teamnn);
         userId=getIntent().getStringExtra("userId");
+        t1=getIntent().getStringExtra("Team1");
+        t2=getIntent().getStringExtra("Team2");
+        mid=getIntent().getStringExtra("mid");
+        Log.i("mid",mid);
+
+
         showProgressDialog();
         bats = new ArrayList<>();
         bowls = new ArrayList<>();
@@ -77,6 +83,9 @@ public class CreatingTeam2 extends AppCompatActivity {
                    // Log.d("Click","Aisha pore");
                     Intent startIntent = new Intent(CreatingTeam2.this,TabbedActiviy.class);
                     startIntent.putExtra("userId",userId);
+                    startIntent.putExtra("Team1",t1);
+                    startIntent.putExtra("Team2",t2);
+                    startIntent.putExtra("mid",mid);
                     startIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(startIntent);
                     finish();
@@ -134,7 +143,7 @@ public class CreatingTeam2 extends AppCompatActivity {
                 money = Integer.parseInt(dataSnapshot.child("Balance").getValue().toString());
                 teamName = (String)dataSnapshot.child("TeamName").getValue();
                 Log.d(TAG,teamName);
-                tmName.setText(teamName);
+
 
                 Log.d(TAG,"hoise");
                 batno = Integer.parseInt(dataSnapshot.child("Batsmen").getValue().toString());
@@ -169,7 +178,7 @@ public class CreatingTeam2 extends AppCompatActivity {
                         player.setUrl((String)ds.child("ImageURL").getValue());
                         player.setId(((Long) ds.child("PlayerId").getValue()).intValue());
 
-                        if(!player.getCountry().startsWith("Bangla")) foreign++;
+                        if(!player.getCountry().startsWith("India")) foreign++;
                         price += player.getPrice();
                         bats.add(player);
 
@@ -191,7 +200,7 @@ public class CreatingTeam2 extends AppCompatActivity {
                         player.setPrice(((Long) ds.child("Price").getValue()).intValue());
                         player.setUrl((String)ds.child("ImageURL").getValue());
                         player.setId(((Long) ds.child("PlayerId").getValue()).intValue());
-                        if(!player.getCountry().startsWith("Bangla")) foreign++;
+                        if(!player.getCountry().startsWith("India")) foreign++;
                         price += player.getPrice();
                         bowls.add(player);
 
@@ -212,7 +221,7 @@ public class CreatingTeam2 extends AppCompatActivity {
                         player.setPrice(((Long) ds.child("Price").getValue()).intValue());
                         player.setUrl((String)ds.child("ImageURL").getValue());
                         player.setId(((Long) ds.child("PlayerId").getValue()).intValue());
-                        if(!player.getCountry().startsWith("Bangla")) foreign++;
+                        if(!player.getCountry().startsWith("India")) foreign++;
                         price += player.getPrice();
                         wkts.add(player);
 
@@ -233,7 +242,7 @@ public class CreatingTeam2 extends AppCompatActivity {
                         player.setPrice(((Long) ds.child("Price").getValue()).intValue());
                         player.setUrl((String)ds.child("ImageURL").getValue());
                         player.setId(((Long) ds.child("PlayerId").getValue()).intValue());
-                        if(!player.getCountry().startsWith("Bangla")) foreign++;
+                        if(!player.getCountry().startsWith("India")) foreign++;
                         price += player.getPrice();
                         alls.add(player);
 
@@ -287,6 +296,10 @@ public class CreatingTeam2 extends AppCompatActivity {
                 startIntent.putExtra("MaxPrice","Any");
                 startIntent.putExtra("MinPrice","Any");
                 startIntent.putExtra("Team","Any");
+                startIntent.putExtra("Team1",t1);
+                startIntent.putExtra("Team2",t2);
+                startIntent.putExtra("mid",mid);
+
                 //startIntent.putExtra("Money",Integer.toString(money));
                 //startIntent.putExtra("Fore",Integer.toString(foreign));
                 if(position>=batsel) {
@@ -313,6 +326,9 @@ public class CreatingTeam2 extends AppCompatActivity {
                 startIntent.putExtra("MaxPrice","Any");
                 startIntent.putExtra("MinPrice","Any");
                 startIntent.putExtra("Team","Any");
+                startIntent.putExtra("Team1",t1);
+                startIntent.putExtra("Team2",t2);
+                startIntent.putExtra("mid",mid);
                 //startIntent.putExtra("Money",Integer.toString(money));
                 //startIntent.putExtra("Fore",Integer.toString(foreign));
                 if(position>=wktsel){
@@ -338,6 +354,9 @@ public class CreatingTeam2 extends AppCompatActivity {
                 startIntent.putExtra("MaxPrice","Any");
                 startIntent.putExtra("MinPrice","Any");
                 startIntent.putExtra("Team","Any");
+                startIntent.putExtra("Team1",t1);
+                startIntent.putExtra("Team2",t2);
+                startIntent.putExtra("mid",mid);
                 //startIntent.putExtra("Money",Integer.toString(money));
                //startIntent.putExtra("Fore",Integer.toString(foreign));
                 if(position>=allsel) {
@@ -363,6 +382,9 @@ public class CreatingTeam2 extends AppCompatActivity {
                 startIntent.putExtra("MaxPrice","Any");
                 startIntent.putExtra("MinPrice","Any");
                 startIntent.putExtra("Team","Any");
+                startIntent.putExtra("Team1",t1);
+                startIntent.putExtra("Team2",t2);
+                startIntent.putExtra("mid",mid);
                 //startIntent.putExtra("Money",Integer.toString(money));
                 //startIntent.putExtra("Fore",Integer.toString(foreign));
                 if(position>=bolsel){

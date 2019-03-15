@@ -26,6 +26,7 @@ import com.google.firebase.database.ServerValue;
 public class CreateAccountActivity extends AppCompatActivity implements
         View.OnClickListener {
 
+
     Button signIn;
     EditText name,email,password,conpass;
     private FirebaseAuth mAuth;
@@ -87,6 +88,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
                             dref.child("Balance").setValue(110);dref.child("Score").setValue(0);
                             dref.child("Since").setValue(ServerValue.TIMESTAMP);
                             dref.child("TotalSelected").setValue(0);
+                            dref.child("HasSubmitted").setValue(0);
                             Toast.makeText(CreateAccountActivity.this,"Account Created",Toast.LENGTH_SHORT).show();
                             Intent startIntent = new Intent(CreateAccountActivity.this,WelcomeActiviy.class);
                             startIntent.putExtra("userId",userId);

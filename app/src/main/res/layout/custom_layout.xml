@@ -19,14 +19,14 @@
         android:id="@+id/pName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_alignLeft="@id/listIm"
-        android:layout_marginTop="10dp"
-        android:textColor="#000"
-
+        android:layout_alignParentTop="true"
         android:layout_marginLeft="70dp"
+        android:layout_marginTop="10dp"
+
         android:text="Player Name"
-        android:textSize="30dp" />
+        android:textColor="#000"
+        android:textSize="18dp" />
 
     <TextView
         android:id="@+id/pRole"
@@ -47,24 +47,24 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/pName"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="42dp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="50dp"
         android:text="Price:"
 
         android:textColor="#000"
-        android:textSize="24dp" />
+        android:textSize="16dp" />
 
     <TextView
         android:id="@+id/pTeam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/pRole"
-        android:layout_marginTop="20dp"
         android:layout_alignLeft="@id/listIm"
+        android:layout_alignTop="@+id/pRole"
         android:layout_marginLeft="70dp"
-        android:textColor="#000"
+        android:layout_marginTop="20dp"
         android:text="Player Name"
-        android:textSize="20dp" />
+        android:textColor="#000"
+        android:textSize="16dp" />
 
     <TextView
         android:id="@+id/vstats"
@@ -83,11 +83,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/pName"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="225dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginLeft="170dp"
+        android:layout_marginTop="50dp"
         android:layout_marginRight="20dp"
 
         android:text="10M$"
         android:textColor="#000"
-        android:textSize="26dp" />
+        android:textSize="16dp" />
 </RelativeLayout>

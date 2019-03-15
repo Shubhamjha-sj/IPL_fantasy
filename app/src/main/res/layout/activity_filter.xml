@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.jake.fantasy.FilterActivity">
+    tools:context="com.example.jake.fantasy.FilterActivity"
+    android:background="@drawable/gradient_6">
     <TextView
         android:id="@+id/filterTitle"
         android:layout_width="wrap_content"
@@ -121,6 +122,6 @@
         android:text="Filter Results"
         android:textSize="20dp"
         android:textColor="#FFF"
-        android:background="@color/colorPrimaryDark"/>
+        android:background="@drawable/gradient_2"/>
 
 </RelativeLayout>

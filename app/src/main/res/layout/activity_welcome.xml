@@ -4,16 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mash"
+    android:background="@drawable/gradient_7"
+
     tools:context="com.example.jake.fantasy.WelcomeActiviy">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="134dp"
-        android:layout_height="84dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="270dp"
-        app:srcCompat="@drawable/logo" />
+
 
     <TextView
         android:id="@+id/welL"
@@ -51,21 +46,13 @@
         android:layout_height="50dp"
         android:layout_marginTop="480dp"
         android:layout_centerHorizontal="true"
-        android:background="@color/colorPrimaryDark"
+
         android:text="Create Your Team"
         android:textSize="25dp"
-        android:textColor="#FFF" />
-
-    <TextView
-        android:id="@+id/rules"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="540dp"
-        android:layout_centerHorizontal="true"
-        android:text="View rules and regulations"
         android:textColor="#FFF"
-        android:textSize="20dp"
-        android:clickable="true"/>
+        android:background="@drawable/gradient_2"/>
+
+
 
 
 </RelativeLayout>
