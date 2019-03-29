@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
     android:layout_centerVertical="true"
-    tools:context="com.example.jake.fantasy.CreatingTeam1"
+    tools:context="com.App.Gangesh.Shubham.CreatingTeam1"
     android:background="@drawable/gradient_6"
     >
 

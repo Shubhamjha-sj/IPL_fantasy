@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.jake.fantasy.TabbedActiviy"
+    tools:context="com.App.Gangesh.Shubham.TabbedActiviy"
     android:background="@drawable/gradient_12">
 
     <android.support.design.widget.AppBarLayout

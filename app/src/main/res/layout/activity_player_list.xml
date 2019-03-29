@@ -10,7 +10,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context="com.example.jake.fantasy.CreatingTeam1"
+    tools:context="com.App.Gangesh.Shubham.CreatingTeam1"
     android:background="@drawable/gradient_9">
 
     <TextView

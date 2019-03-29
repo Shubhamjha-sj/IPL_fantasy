@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_1"
-    tools:context="com.example.jake.fantasy.SignInActivity">
+    tools:context="com.App.Gangesh.Shubham.SignInActivity">
 
     <ImageView
         android:id="@+id/imageView4"
